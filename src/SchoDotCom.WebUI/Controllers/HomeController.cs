@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using SchoDotCom.WebUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +28,11 @@ namespace SchoDotCom.WebUI.Controllers
 			ViewBag.Message = "Your contact page.";
 
 			return View();
+		}
+
+		public string Test()
+		{
+			return User.Identity.Name;
 		}
 	}
 }

@@ -47,6 +47,9 @@ namespace SchoDotCom.WebUI.App_Start
 			container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
 			container.RegisterType<IAuthenticationManager>(new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication)); // From http://tech.trailmax.info/2014/09/aspnet-identity-and-ioc-container-registration/
 
+			container.RegisterType<RoleManager<IdentityRole>>();
+			container.RegisterType<IRoleStore<IdentityRole, string>, RoleStore<IdentityRole>>();
+			//container.RegisterType<>
 		}
     }
 }
