@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 {
-	[Authorize]
+	[Authorize(Roles="admin")]
     public class UsersController : Controller
     {
 
