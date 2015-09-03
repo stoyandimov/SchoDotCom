@@ -9,6 +9,7 @@ namespace SchoDotCom.WebUI
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+			Seed(app);
         }
     }
 }
