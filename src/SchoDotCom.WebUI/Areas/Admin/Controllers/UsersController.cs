@@ -1,4 +1,5 @@
-﻿using SchoDotCom.WebUI.Areas.Admin.Models;
+﻿using Microsoft.AspNet.Identity;
+using SchoDotCom.WebUI.Areas.Admin.Models;
 using SchoDotCom.WebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -36,9 +37,9 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
         }
 
         // GET: Admin/Users/Details/a
-        public async Task<ActionResult> Details(string id)
+        public ActionResult Details(string id)
         {
-			ApplicationUser user = await UserManager.FindByIdAsync(id);
+			ApplicationUser user = UserManager.FindById(id);
 			if (user == null)
 				return HttpNotFound();
 
@@ -46,9 +47,9 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
         }
 
 		// GET: Admin/Users/Delete/a
-		public async Task<ActionResult> Delete(string id)
+		public ActionResult Delete(string id)
         {
-			ApplicationUser appUser = await UserManager.FindByIdAsync(id);
+			ApplicationUser appUser = UserManager.FindById(id);
 			if (appUser == null)
 				return HttpNotFound();
 
@@ -67,7 +68,7 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 		[HttpPost]
 		public async Task<ActionResult> Delete(string id, UserViewModel user)
         {
-			ApplicationUser appUser = await UserManager.FindByIdAsync(id);
+			ApplicationUser appUser = UserManager.FindById(id);
 			if (appUser == null)
 				return HttpNotFound();
 
@@ -79,5 +80,6 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 
 			return View(user);
 		}
+
     }
 }
