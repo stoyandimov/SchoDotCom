@@ -1,6 +1,14 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using SchoDotCom.WebUI.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+using Microsoft.AspNet.Identity;
+using SchoDotCom.WebUI.Controllers;
+using SchoDotCom.WebUI.Areas.Admin.Controllers;
+using Microsoft.Owin.Security;
+using System.Web;
 
 namespace SchoDotCom.WebUI.App_Start
 {
@@ -32,11 +40,13 @@ namespace SchoDotCom.WebUI.App_Start
         /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
+			// NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
+			// container.LoadConfiguration();
 
-            // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
-        }
+			container.RegisterType<DbContext, ApplicationDbContext>();
+			container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
+			container.RegisterType<IAuthenticationManager>(new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication)); // From http://tech.trailmax.info/2014/09/aspnet-identity-and-ioc-container-registration/
+
+		}
     }
 }

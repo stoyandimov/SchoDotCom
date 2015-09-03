@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNet.Identity.Owin;
-using SchoDotCom.WebUI.Areas.Admin.Models;
+﻿using SchoDotCom.WebUI.Areas.Admin.Models;
 using SchoDotCom.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SchoDotCom.WebUI.Areas.Admin.Controllers
@@ -14,36 +12,8 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
     public class UsersController : Controller
     {
 
-		private ApplicationSignInManager _signInManager;
-		private ApplicationUserManager _userManager;
-
-		public ApplicationSignInManager SignInManager
-		{
-			get
-			{
-				return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-			}
-			private set
-			{
-				_signInManager = value;
-			}
-		}
-
-		public ApplicationUserManager UserManager
-		{
-			get
-			{
-				return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-			}
-			private set
-			{
-				_userManager = value;
-			}
-		}
-
-		public UsersController()
-		{
-		}
+		private ApplicationSignInManager SignInManager { get; set; }
+		private ApplicationUserManager UserManager { get; set; }
 
 		// To be used with dependency injection
 		public UsersController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
