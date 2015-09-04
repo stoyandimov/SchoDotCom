@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SchoDotCom.WebUI.Areas.Admin.Models;
+using SchoDotCom.WebUI.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,11 +13,13 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 	public class RolesController : Controller
     {
 		private RoleManager<IdentityRole> RoleManager { get; set; }
+		private ApplicationUserManager UserManager { get; set; }
 
-		public RolesController(RoleManager<IdentityRole> roleManager)
+		public RolesController(RoleManager<IdentityRole> roleManager, ApplicationUserManager userManager)
 		{
 			RoleManager = roleManager;
-		}
+			UserManager = userManager;
+        }
 
 		// GET: Admin/Role
 		public ActionResult Index()
@@ -108,6 +112,18 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 			RoleManager.Delete(r);
 
 			return RedirectToAction("Index");
+		}
+
+		[HttpGet]
+		public ActionResult Users(string id)
+		{
+			IdentityRole role = RoleManager.FindById(id);
+			if (role == null)
+				return HttpNotFound();
+
+			var Model = new RoleUsersViewModel(role, UserManager.Users.Where(U => U.Roles.Any(R => R.RoleId == id)));
+
+			return View(Model);
 		}
     }
 }

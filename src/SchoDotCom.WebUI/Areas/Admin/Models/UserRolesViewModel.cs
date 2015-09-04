@@ -6,7 +6,7 @@ namespace SchoDotCom.WebUI.Areas.Admin.Models
 {
 	public class UserRolesViewModel
 	{
-		public IEnumerable<IdentityRole> Roles;
+		public IEnumerable<IdentityRole> Roles { get; set; }
 
 		public ApplicationUser User { get;  set; }
 
