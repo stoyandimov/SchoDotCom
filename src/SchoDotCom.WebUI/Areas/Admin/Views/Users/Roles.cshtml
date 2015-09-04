@@ -1,0 +1,26 @@
+﻿@model SchoDotCom.WebUI.Areas.Admin.Models.UserRolesViewModel
+
+@{
+    ViewBag.Title = "User Roles";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="list-group">
+	<li class="list-group-item disabled">@Model.User.UserName</li>
+	@foreach(var role in Model.Roles)
+	{
+		bool inRole = Model.User.Roles.Any(R => R.RoleId == role.Id);
+		<li class="list-group-item">
+			@role.Name
+			@if (inRole)
+			{
+				@Html.ActionLink("Remove Role", "RemoveRole", new { userId = Model.User.Id, role = role.Name }, new { @class = "btn btn-xs btn-danger" });
+			}
+			else
+			{
+				@Html.ActionLink("Add Role", "AddRole", new { userId = Model.User.Id, role = role.Name }, new { @class = "btn btn-xs btn-success" });
+			}
+		</li>
+	}
+</ul>
