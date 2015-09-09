@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 {
 	[Authorize(Roles="admin")]
-	[RoutePrefix("/Admin/Users")]
+	[RouteArea("Admin")]
     public class UsersController : Controller
     {
 
@@ -80,7 +80,6 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 			return View(user);
 		}
 
-		[HttpGet]
 		public ActionResult Roles(string id)
 		{
 			ApplicationUser user = UserManager.FindById(id);
@@ -93,7 +92,6 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 			return View(model);
 		}
 
-		[HttpGet]
 		[Route("AddRole/{userId}/{role}")]
 		public ActionResult AddRole(string userId, string role)
 		{
@@ -109,7 +107,6 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 			return RedirectToAction("Roles", new { id = userId });
 		}
 
-		[HttpGet]
 		[Route("RemoveRole/{userId}/{role}")]
 		public ActionResult RemoveRole(string userId, string role)
 		{

@@ -55,6 +55,7 @@ namespace SchoDotCom.WebUI.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+		[Route("login")]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -66,7 +67,8 @@ namespace SchoDotCom.WebUI.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+		[Route("login")]
+		public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -137,7 +139,8 @@ namespace SchoDotCom.WebUI.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+		[Route("register")]
+		public ActionResult Register()
         {
             return View();
         }

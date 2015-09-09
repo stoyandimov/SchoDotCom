@@ -20,15 +20,11 @@
                 @Html.ActionLink("Stoyan Dimov", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                <ul class="nav navbar-nav navbar-right">
+					<li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-					@if (User.IsInRole("admin"))
-					{
-						<li>@Html.ActionLink("Admin Area", "Index", new { controller = "AdminHome", area = "Admin" })</li>
-					}
+					@Html.Partial("_LoginPartial")
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -36,7 +32,23 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
+            <p class="pull-left">&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
+			<p class="pull-right">
+				@Html.ActionLink("About", "About", "Home") | 
+				@Html.ActionLink("Contact", "Contact", "Home") | 
+				@if (User.IsInRole("admin"))
+				{
+					@Html.ActionLink("Admin Area", "Index", new { controller = "AdminHome", area = "Admin" }) @:| 
+				}
+				@if (Request.IsAuthenticated)
+				{
+					<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+				}
+				else
+				{
+					@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+				}
+			</p>
         </footer>
     </div>
 
