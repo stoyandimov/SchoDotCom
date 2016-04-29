@@ -11,7 +11,7 @@
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body id="homeBackground">
 	<div id="pageHome">
 		<header>
 			<div class="container">
@@ -25,16 +25,16 @@
 				<div class="container">
 					<div class="pull-left social-media-container">
 						<a target="_blank" href="https://twitter.com/StoyanDimov">
-							<img src="~/Media/Images/twitter-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/twitter-24.ico" />
 						</a>
 						<a target="_blank" href="https://linkedin.com/in/stoyandimov">
-							<img src="~/Media/Images/linkedin-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
 						</a>
 						<a target="_blank" href="https://github.com/stoyandimov">
-							<img src="~/Media/Images/github-6-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/github-24.ico" />
 						</a>
 						<a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
-							<img src="~/Media/Images/os-windows-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/windows-24.ico" />
 						</a>
 					</div>
 					<div class="navbar-header">
@@ -49,7 +49,16 @@
 							<li>@Html.ActionLink("About", "About", "Home")</li>
 							<li>@Html.ActionLink("Resume", "Resume", "Home")</li>
 							<li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-							@Html.Partial("_LoginPartial")
+							@if (Request.IsAuthenticated)
+							{
+								<li>
+									@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+									{
+										@Html.AntiForgeryToken()
+									}
+									<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+								</li>
+							}
 						</ul>
 					</div>
 				</div>

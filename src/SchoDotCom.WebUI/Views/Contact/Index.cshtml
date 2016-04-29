@@ -3,7 +3,7 @@
 	ViewBag.Title = "Contact";
 }
 <div class="row">
-	<div class="col-contact col-md-8">
+	<div class="col-contact col-md-7">
 		<div class="col">
 			<h2>@ViewBag.Title</h2>
 			<hr />
@@ -21,50 +21,51 @@
 					@Html.AntiForgeryToken()
 					<div class="form-horizontal">
 						@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
 						<div class="form-group">
-							@Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-4 small" })
-							<div class="col-md-8">
-								@Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
-								@Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger small" })
+							@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3 small" })
+							<div class="col-md-9">
+								@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+								@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger small" })
 							</div>
 						</div>
 
 						<div class="form-group">
-							@Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-4 small" })
-							<div class="col-md-8">
-								@Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
-								@Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger small" })
+							@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3 small" })
+							<div class="col-md-9">
+								@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+								@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger small" })
 							</div>
 						</div>
 
 						<div class="form-group">
-							@Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-4 small" })
-							<div class="col-md-8">
-								@Html.TextAreaFor(model => model.Message, 6, 44, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-3 small" })
+							<div class="col-md-9">
+								@Html.TextAreaFor(model => model.Message, 4, 44, new { htmlAttributes = new { @class = "form-control" } })
 								<p id="messageLenght" class="text-muted small">Type your message above</p>
 								@Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger small" })
 							</div>
 						</div>
 
 						<div class="form-group">
-							<div class="col-md-offset-4 col-md-8">
+							<div class="col-md-offset-3 col-md-9">
 								<input type="submit" value="Send Message" class="btn btn-default" />
 								<br />
 							</div>
 						</div>
 					</div>
 				}
-				<p class="text-right text-muted">
-					Problem with the website?
+				<p class="text-center text-muted">
+					Problem with the website? Why not directly
 					<a href="https://github.com/stoyandimov/SchoDotCom/issues/new" target="_blank">
-						Create a GitHub issue!
+						create a GitHub issue?
 					</a>
 				</p>
 			}
 		</div>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-5">
 		<div class="col">
 			<h2>Links</h2>
 			<div class="contact-social-media-container">
@@ -72,7 +73,7 @@
 					<tr>
 						<td>
 							<a target="_blank" href="https://twitter.com/StoyanDimov">
-								<img src="~/Media/Images/twitter-24(2).ico" />
+								<img src="~/Media/Images/social-link-icons/twitter-24.ico" />
 							</a>
 						</td>
 						<td>@@StoyanDimov </td>
@@ -80,7 +81,7 @@
 					<tr>
 						<td>
 							<a target="_blank" href="https://linkedin.com/in/stoyandimov">
-								<img src="~/Media/Images/linkedin-24(2).ico" />
+								<img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
 							</a>
 						</td>
 						<td>stoyandimov</td>
@@ -88,7 +89,7 @@
 					<tr>
 						<td>
 							<a target="_blank" href="https://github.com/stoyandimov">
-								<img src="~/Media/Images/github-6-24(2).ico" />
+								<img src="~/Media/Images/social-link-icons/github-24.ico" />
 							</a>
 						</td>
 						<td>stoyandimov</td>
@@ -96,7 +97,7 @@
 					<tr>
 						<td>
 							<a target="_blank" href="http://stackoverflow.com/users/1258925/stoyan-dimov">
-								<img src="~/Media/Images/stackoverflow-24(2).ico" />
+								<img src="~/Media/Images/social-link-icons/stackoverflow-24.ico" />
 							</a>
 						</td>
 						<td>stoyan-dimov</td>
@@ -104,10 +105,10 @@
 					<tr>
 						<td>
 							<a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
-								<img src="~/Media/Images/os-windows-24(2).ico" />
+								<img src="~/Media/Images/social-link-icons/windows-24.ico" />
 							</a>
 						</td>
-						<td>Microsoft Cert. Profile MSID: 4978868885</td>
+						<td>Microsoft Certification Profile <br /> MSID: 4978868885</td>
 					</tr>
 				</table>
 			</div>

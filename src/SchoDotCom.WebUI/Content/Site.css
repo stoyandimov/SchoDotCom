@@ -53,8 +53,14 @@ textarea {
 }
 
 #menuAvatarImage {
-	margin-top: 5px;
+	margin-top: -13px;
+	margin-right: 6px;
+	float:left;
 	height: 52px;
+	-ms-transform: rotate(27deg); /* IE 9 */
+	-webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
+	transform: rotate(27deg);
+	border:2px solid #bababa;
 }
 
 @media (min-width: 1200px) {
@@ -83,11 +89,43 @@ p, div {
 }
 
 /**
+ * Layout
+ */
+
+.nav-container .social-media-container {
+	padding: 15px 0;
+	opacity: 0.7;
+}
+.nav-container .social-media-container a {
+	text-decoration:none;
+}
+.nav-container .social-media-container img {
+	margin-right:10px;
+	padding: 4px;
+	height: 24px;
+	opacity:0.8;
+}
+
+.nav-container .social-media-container img:hover{
+	opacity:1;
+}
+
+header *{
+	color: #fff;
+}
+header {
+	margin-top: -20px;
+	background:  url('/Media/Images/bg-noise-transparent.png') #03a9f4;
+	padding: 15px 0;
+	box-shadow: 0 0 3px #555;
+}
+
+/**
  * PAGE: Home
  */
 #pageHome header {
 	margin-top: 10%;
-	background:  url('/Media/Images/noise.png') #03a9f4;
+	background:  url('/Media/Images/bg-noise-transparent.png') #03a9f4;
 	padding: 15px 0;
 	box-shadow: 0 0 2px #555;
 }
@@ -117,41 +155,12 @@ p, div {
 	transform: rotate(27deg);
 	background-size:cover;
 	background-position:6px 0;
-	background-image: url('../Media/Images/avatar.jpg');
+	background-image: url('../Media/Images/avatar-400.jpg');
 	width:140px;
 	height:140px;
 }
-
-
-/**
- * Layout
- */
-.nav-container .social-media-container {
-	padding: 15px 0;
-	opacity: 0.7;
-}
-.nav-container .social-media-container a {
-	text-decoration:none;
-}
-.nav-container .social-media-container img {
-	margin-right:10px;
-	padding: 4px;
-	height: 24px;
-	opacity:0.8;
-}
-
-.nav-container .social-media-container img:hover{
-	opacity:1;
-}
-
-header *{
-	color: #fff;
-}
-header {
-	margin-top: -20px;
-	background:  url('/Media/Images/noise.png') #03a9f4;
-	padding: 15px 0;
-	box-shadow: 0 0 3px #555;
+#homeBackground {
+	background:  url('/Media/Images/bg-noise.png') #fff;
 }
 
 /**
@@ -169,7 +178,7 @@ main #pageAbout {
 	margin-top: -104px;
 	border-radius:2px;
 	padding-left: 20px;
-	background:  url('/Media/Images/noise.png') #fff;
+	background:  url('/Media/Images/bg-noise-transparent.png') #fff;
 	box-shadow: 0 0 3px #555;
 }
 
@@ -197,11 +206,14 @@ main #pageAbout {
 	border-radius:2px;
 	padding-left: 20px;
 	padding-right: 20px;
-	background:  url('/Media/Images/noise.png') #fff;
+	background:  url('/Media/Images/bg-noise-transparent.png') #fff;
 	box-shadow: 0 0 3px #555;
 }
 #pageContact .heading-title {
 	display:none;	
+}
+#pageContact #Message {
+	background-color: transparent;
 }
 #pageContact .col-contact {
 	margin-bottom: 170px;

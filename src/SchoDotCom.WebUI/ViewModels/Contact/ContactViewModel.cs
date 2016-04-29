@@ -5,17 +5,14 @@ namespace SchoDotCom.WebUI.ViewModels.Contact
 	public class ContactViewModel
 	{
 		[Required]
+		public string Name { get; set; }
+
+		[Required]
 		[EmailAddress]
-		[Display(Name = "Email Address")]
-		public string EmailAddress { get; set; }
+		public string Email{ get; set; }
 
 		[Required]
-		[Display(Name = "Message Subject")]
-		public string Subject { get; set; }
-
-		[Required]
-		[Display(Name = "Message Content")]
-		[StringLength(int.MaxValue, MinimumLength = 140, ErrorMessage = "The field Message Content must be a string with a minimum length of 140.")]
+		[StringLength(int.MaxValue, MinimumLength = 140, ErrorMessage = "The field Message must be with a minimum length of 140.")]
 		public string Message { get; set; }
 
 		public bool IsSent { get; set; }

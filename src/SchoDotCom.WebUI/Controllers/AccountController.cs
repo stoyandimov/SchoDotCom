@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SchoDotCom.WebUI.Models;
+using SchoDotCom.WebUI.ViewModels.Account;
 
 namespace SchoDotCom.WebUI.Controllers
 {

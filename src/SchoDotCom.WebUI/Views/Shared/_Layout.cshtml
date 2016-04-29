@@ -18,8 +18,10 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<img src="https://www.gravatar.com/avatar/c0320baa25de1b5370675cbc18c2d532?s=200" alt="Stoyan Dimov" class="img-circle img-thumbnail" id="menuAvatarImage">
-					@Html.ActionLink("stoyandimov.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+					<a href="/" class="navbar-brand">
+						<img src="~/Media/Images/avatar-400.jpg" alt="Stoyan Dimov" class="img-circle " id="menuAvatarImage">
+						stoyandimov.com
+					</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -30,16 +32,16 @@
 					</ul>
 					<div class="pull-right social-media-container">
 						<a target="_blank" href="https://twitter.com/StoyanDimov">
-							<img src="~/Media/Images/twitter-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/twitter-24.ico" />
 						</a>
 						<a target="_blank" href="https://linkedin.com/in/stoyandimov">
-							<img src="~/Media/Images/linkedin-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
 						</a>
 						<a target="_blank" href="https://github.com/stoyandimov">
-							<img src="~/Media/Images/github-6-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/github-24.ico" />
 						</a>
 						<a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
-							<img src="~/Media/Images/os-windows-24(2).ico" />
+							<img src="~/Media/Images/social-link-icons/windows-24.ico" />
 						</a>
 					</div>
 				</div>
@@ -67,7 +69,7 @@
 			}
 			@if (Request.IsAuthenticated)
 			{
-				@:|<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+				@:| <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
 			}
 		</p>
 		<p>&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
