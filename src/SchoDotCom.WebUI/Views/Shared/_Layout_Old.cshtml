@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@(String.IsNullOrWhiteSpace(ViewBag.Title) ? "" : @ViewBag.Title + " | ") StoyanDimov.com</title>
+	<link rel="icon" href="http://0.gravatar.com/blavatar/2748420a254dfa3d07d389ea85795842?s=16" />
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+	@Html.Partial("_MainMenu")
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					
+					<div id="avatarContainer" >
+						<img src="https://www.gravatar.com/avatar/c0320baa25de1b5370675cbc18c2d532?s=180" alt="Stoyan Dimov" id="headingAvatarImage"/>
+					</div>
+					<div class="social-media-container">
+						<a target="_blank" href="https://twitter.com/StoyanDimov">
+							<img src="~/Media/Images/twitter-24(1).ico" />
+						</a>
+						<a target="_blank" href="https://linkedin.com/in/stoyandimov">
+							<img src="~/Media/Images/linkedin-24(1).ico" />
+						</a>
+						<a target="_blank" href="https://github.com/stoyandimov">
+							<img src="~/Media/Images/github-6-24(1).ico" />
+						</a>
+						<a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
+							<img src="~/Media/Images/os-windows-24(1).ico" />
+						</a>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="pull-left">
+						<h2 id="mainTitle">Stoyan Dimov</h2>
+						<p id="subTitle" class="lead">web applications developer</p>
+					</div>
+					<div class="pull-right">
+						<div id="myCanvasContainer" class="pull-right">
+							<canvas id="myCanvas"  height="150" width="250">
+								<p>Anything in here will be replaced on browsers that support the canvas element</p>
+							</canvas>
+							<div id="tags">
+								<ul>
+									<li><a href="/fish">.NET </a></li>
+									<li><a href="/chips">ASP.NET Core</a></li>
+									<li><a href="/chips">ASP.NET</a></li>
+									<li><a href="/salt">C#</a></li>
+									<li><a href="/vinegar">Web Dev</a></li>
+									<li><a href="/vinegar">Azure</a></li>
+									<li><a href="/vinegar">MVC</a></li>
+									<li><a href="/vinegar">WCF</a></li>
+									<li><a href="/vinegar">Web API</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container body-content">
+		<div class="row">
+			<div class="col-md-3">
+
+			</div>
+			<div class="col-md-9">
+				@RenderBody()
+			</div>
+		</div>
+<hr />
+<footer>
+	<div class="pull-left social-media-bottom-container">
+		<a target="_blank" href="https://twitter.com/StoyanDimov">
+			<img src="~/Media/Images/twitter-24.ico" />
+		</a>
+		<a target="_blank" href="https://linkedin.com/in/stoyandimov">
+			<img src="~/Media/Images/linkedin-24.ico" />
+		</a>
+		<a target="_blank" href="https://github.com/stoyandimov">
+			<img src="~/Media/Images/github-6-24.ico" />
+		</a>
+		<a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
+			<img src="~/Media/Images/os-windows-24.ico" />
+		</a>
+	</div>
+	<p class="pull-right">
+		@Html.ActionLink("About", "About", "Home") |
+		@Html.ActionLink("Contact", "Contact", "Home") |
+		@if (User.IsInRole("admin"))
+		{
+			@Html.ActionLink("Admin Area", "Index", new { controller = "AdminHome", area = "Admin" }) @:|
+				}
+		@if (Request.IsAuthenticated)
+		{
+			<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+		}
+		else
+		{
+			@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+		}
+	</p>
+	<p class="text-center">&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
+</footer>
+	</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/jquery.tagcanvas-2.9.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		var success = $('#myCanvas').tagcanvas({
+			textColour: '#fff',
+			textFont: 'Segoe UI',
+			outlineDash: 5,
+			outlineDashSpeed: 0,
+			outlineColour: '#fff',
+			bgOutline: null,
+			reverse: true,
+			depth: 0.8,
+			maxSpeed: 0.02,
+			minSpeed: 0.02,
+			initial: [0.3, -0.3]
+		}, 'tags');
+		if (!success)
+		{
+			$('#myCanvasContainer').hide();
+		}
+	});
+
+	$(function () {
+		var headingAvatar = $('#avatarContainer');
+		var menuAvatar = $('#menuAvatarImage');
+		menuAvatar.hide();
+		var avatarShifTop = 159;
+		var moveAvatar = function () {
+			var top = window.pageYOffset;
+			if (top < avatarShifTop) {
+				menuAvatar.hide();
+				headingAvatar.show();
+			} else {
+				headingAvatar.hide();
+				menuAvatar.show();
+			}
+		}
+
+		$(window).scroll(moveAvatar);
+		moveAvatar();
+	});
+</script>
+@RenderSection("scripts", required: false)
+</body>
+</html>
+

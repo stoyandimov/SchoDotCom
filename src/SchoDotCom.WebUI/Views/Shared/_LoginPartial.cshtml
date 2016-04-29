@@ -1,13 +1,13 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    <li>
+	<li>
 		<a href="@(Url.Action("Index", "Manage"))">
 			<i class="glyphicon glyphicon-user"></i> 
 			@User.Identity.GetUserName()
 		</a>
-    </li>
-    <li>
+	</li>
+	<li>
 		@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
 		{
 			@Html.AntiForgeryToken()

@@ -9,49 +9,69 @@
 	@Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				@Html.ActionLink("Stoyan Dimov", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>@Html.ActionLink("About", "About", "Home")</li>
-					<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-					@Html.Partial("_LoginPartial")
-				</ul>
+	<nav class="nav-container">
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<img src="https://www.gravatar.com/avatar/c0320baa25de1b5370675cbc18c2d532?s=200" alt="Stoyan Dimov" class="img-circle img-thumbnail" id="menuAvatarImage">
+					@Html.ActionLink("stoyandimov.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>@Html.ActionLink("About", "About", "Home")</li>
+						<li>@Html.ActionLink("Resume", "Resume", "Home")</li>
+						<li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+						@Html.Partial("_LoginPartial")
+					</ul>
+					<div class="pull-right social-media-container">
+						<a target="_blank" href="https://twitter.com/StoyanDimov">
+							<img src="~/Media/Images/twitter-24(2).ico" />
+						</a>
+						<a target="_blank" href="https://linkedin.com/in/stoyandimov">
+							<img src="~/Media/Images/linkedin-24(2).ico" />
+						</a>
+						<a target="_blank" href="https://github.com/stoyandimov">
+							<img src="~/Media/Images/github-6-24(2).ico" />
+						</a>
+						<a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
+							<img src="~/Media/Images/os-windows-24(2).ico" />
+						</a>
+					</div>
+				</div>
+				
 			</div>
 		</div>
-	</div>
-	<div class="container body-content">
-		@RenderBody()
-		<hr />
-		<footer>
-			<p class="pull-left">&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
-			<p class="pull-right">
-				@Html.ActionLink("About", "About", "Home") | 
-				@Html.ActionLink("Contact", "Contact", "Home") | 
-				@if (User.IsInRole("admin"))
-				{
-					@Html.ActionLink("Admin Area", "Index", new { controller = "AdminHome", area = "Admin" }) @:| 
-				}
-				@if (Request.IsAuthenticated)
-				{
-					<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-				}
-				else
-				{
-					@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-				}
-			</p>
-		</footer>
-	</div>
-
+	</nav>
+	<header style="height:150px">
+		
+	</header>
+	<main class="container">
+		<div id="page@(ViewBag.Title)">
+			<h2 class="heading-title">@ViewBag.Title</h2>
+			@RenderBody()
+		</div>
+	</main>
+	<footer class="navbar-fixed-bottom navbar-default container">
+		<p class="pull-right">
+			@Html.ActionLink("About", "About", "Home") |
+			@Html.ActionLink("Resume", "Resume", "Home") |
+			@Html.ActionLink("Contact", "Index", "Contact")
+			@if (User.IsInRole("admin"))
+			{
+				@:| @Html.ActionLink("Admin Area", "Index", new { controller = "AdminHome", area = "Admin" })
+			}
+			@if (Request.IsAuthenticated)
+			{
+				@:|<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+			}
+		</p>
+		<p>&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
+	</footer>
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)

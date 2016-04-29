@@ -1,24 +1,208 @@
 ﻿body {
-    padding-top: 84px;
-    padding-bottom: 20px;
+	padding-top: 84px;
+	padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-    white-space: normal;
+	white-space: normal;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+	max-width: 280px;
+}
+
+/*header {
+	margin-top: -21px;
+	padding: 15px 0;
+	background: #2e7bcf url("../Media/Images/header-bg.jpg") repeat-x scroll 0 0;
+	border: 1px solid #275da1;
+	color: #ffffff;
+	height: 162px;
+}*/
+#headingAvatarImage {
+	border: 7px solid #fff;
+}
+
+#avatarContainer {
+	/*margin-top: 69px;*/
+	margin-top: 9px;
+	margin-left: -15px;
+	height: 196px;
+	width: 196px;
+	border: 1px solid #275da1;
+}
+
+#mainTitle {
+	color:#eee;
+	margin-top: 19px;
+}
+#subTitle {
+	margin-top: 20px;
+}
+
+#menuAvatarImage {
+	margin-top: 5px;
+	height: 52px;
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 970px;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:200;
+	font-family: 'Segoe UI';
+}
+p, div {
+	font-family: 'Segoe UI';
+	font-weight: 200;
+	font-size: 106%;
+}
+
+
+.social-media-bottom-container img {
+	background-color: #2196f3;
+	border-radius: 2px;
+	padding: 5px;
+	margin-left: 4px;
+	height: 25px;
+}
+
+/**
+ * PAGE: Home
+ */
+#pageHome header {
+	margin-top: 10%;
+	background:  url('/Media/Images/noise.png') #03a9f4;
+	padding: 15px 0;
+	box-shadow: 0 0 2px #555;
+}
+#pageHome header * {
+	color: #fff;
+}
+#pageHome .img-thumbnail {
+	background-color: #e1f5fe; 
+	border: 0;
+	box-shadow: 0 0 5px 0px #555;
+}
+#pageHome .navbar {
+	margin-top: 2px;
+	border-radius: 0px;
+}
+#pageHome .navbar-nav {
+	margin-left: 5px;
+}
+#pageHome .container {
+	width: 530px;
+}
+#pageHome .avatar {
+	float: left;
+	margin-right: 30px;
+	-ms-transform: rotate(27deg); /* IE 9 */
+	-webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
+	transform: rotate(27deg);
+	background-size:cover;
+	background-position:6px 0;
+	background-image: url('../Media/Images/avatar.jpg');
+	width:140px;
+	height:140px;
+}
+
+
+/**
+ * Layout
+ */
+.nav-container .social-media-container {
+	padding: 15px 0;
+	opacity: 0.7;
+}
+.nav-container .social-media-container a {
+	text-decoration:none;
+}
+.nav-container .social-media-container img {
+	margin-right:10px;
+	padding: 4px;
+	height: 24px;
+	opacity:0.8;
+}
+
+.nav-container .social-media-container img:hover{
+	opacity:1;
+}
+
+header *{
+	color: #fff;
+}
+header {
+	margin-top: -20px;
+	background:  url('/Media/Images/noise.png') #03a9f4;
+	padding: 15px 0;
+	box-shadow: 0 0 3px #555;
+}
+
+/**
+ * PAGE About
+ */
+#pageAbout img.avatar-image {
+	width:100%;
+	margin-top:-81px;
+}
+#pageAbout h2 {
+	padding-top:20px;
+}
+
+main #pageAbout {
+	margin-top: -104px;
+	border-radius:2px;
+	padding-left: 20px;
+	background:  url('/Media/Images/noise.png') #fff;
+	box-shadow: 0 0 3px #555;
+}
+
+#pageAbout .flag-image {
+	width: 17px;
+	height: 15px;
+}
+
+/**
+ * PAGE Contact
+ */
+#pageContact table {
+	margin-top:22px;
+}
+#pageContact h2 {
+	padding-top:20px;
+	margin-bottom: -12px;
+}
+#pageContact table td {
+	margin-top:22px;
+	padding: 12px 10px;
+}
+#pageContact .col {
+	margin-top: -104px;
+	border-radius:2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background:  url('/Media/Images/noise.png') #fff;
+	box-shadow: 0 0 3px #555;
+}
+#pageContact .heading-title {
+	display:none;	
+}
+#pageContact .col-contact {
+	margin-bottom: 170px;
 }

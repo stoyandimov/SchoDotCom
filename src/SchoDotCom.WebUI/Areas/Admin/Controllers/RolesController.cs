@@ -11,7 +11,7 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 {
 	[Authorize(Roles="admin")]
 	public class RolesController : Controller
-    {
+	{
 		private RoleManager<IdentityRole> RoleManager { get; set; }
 		private ApplicationUserManager UserManager { get; set; }
 
@@ -19,7 +19,7 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 		{
 			RoleManager = roleManager;
 			UserManager = userManager;
-        }
+		}
 
 		// GET: Admin/Role
 		public ActionResult Index()
@@ -125,5 +125,5 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 
 			return View(Model);
 		}
-    }
+	}
 }

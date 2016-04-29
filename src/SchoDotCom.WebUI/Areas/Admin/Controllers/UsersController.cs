@@ -12,8 +12,8 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 {
 	[Authorize(Roles="admin")]
 	[RouteArea("Admin")]
-    public class UsersController : Controller
-    {
+	public class UsersController : Controller
+	{
 
 		private ApplicationSignInManager SignInManager { get; set; }
 		private ApplicationUserManager UserManager { get; set; }
@@ -25,11 +25,11 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 			UserManager = userManager;
 			SignInManager = signInManager;
 			RoleManager = roleManager;
-        }
+		}
 
 		// GET: Admin/Users
 		public ActionResult Index()
-        {
+		{
 			//var model = UserManager.Users.Select(U => new UserViewModel(U)).ToArray();
 			var model = UserManager.Users.Select(U => new UserViewModel()
 			{
@@ -39,21 +39,21 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 				UserName = U.UserName
 			});
 			return View(model);
-        }
+		}
 
-        // GET: Admin/Users/Details/a
-        public ActionResult Details(string id)
-        {
+		// GET: Admin/Users/Details/a
+		public ActionResult Details(string id)
+		{
 			ApplicationUser user = UserManager.FindById(id);
 			if (user == null)
 				return HttpNotFound();
 
 			return View(user);
-        }
+		}
 
 		// GET: Admin/Users/Delete/a
 		public ActionResult Delete(string id)
-        {
+		{
 			ApplicationUser appUser = UserManager.FindById(id);
 			if (appUser == null)
 				return HttpNotFound();
@@ -66,7 +66,7 @@ namespace SchoDotCom.WebUI.Areas.Admin.Controllers
 		// POST: Admin/Users/Delete/a
 		[HttpPost]
 		public async Task<ActionResult> Delete(string id, UserViewModel user)
-        {
+		{
 			ApplicationUser appUser = UserManager.FindById(id);
 			if (appUser == null)
 				return HttpNotFound();

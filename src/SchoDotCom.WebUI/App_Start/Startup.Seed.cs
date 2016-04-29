@@ -1,31 +1,28 @@
-﻿using System;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
+﻿using Microsoft.AspNet.Identity;
 using Owin;
 using SchoDotCom.WebUI.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Configuration;
 
 namespace SchoDotCom.WebUI
 {
-    public partial class Startup
-    {
-        public void Seed(IAppBuilder app)
+	public partial class Startup
+	{
+		public void Seed(IAppBuilder app)
 		{
 			// Creates default user if not exist
 			var userManager = new ApplicationUserManager(
 				new UserStore<ApplicationUser>(
 					new ApplicationDbContext()));
 
-			var DefaultEmail = "stoyandimov@hotmail.com";
+			var DefaultUsername = ConfigurationManager.AppSettings["schodotcom:DefaultUsername"];
+			var DefaultPassword = ConfigurationManager.AppSettings["schodotcom:DefaultPassword"];
 
-			ApplicationUser user = userManager.FindByEmail(DefaultEmail);
+			ApplicationUser user = userManager.FindByEmail(DefaultUsername);
 			if (user == null)
-				userManager.Create(new ApplicationUser { UserName = DefaultEmail, Email = DefaultEmail, PasswordHash = userManager.PasswordHasher.HashPassword("01068")});
+				userManager.Create(new ApplicationUser { UserName = DefaultUsername, Email = DefaultUsername, PasswordHash = userManager.PasswordHasher.HashPassword(DefaultPassword) });
 
-			user = userManager.FindByName(DefaultEmail);
+			user = userManager.FindByName(DefaultUsername);
 
 			// Creates admin role if not exist
 
@@ -41,8 +38,8 @@ namespace SchoDotCom.WebUI
 
 			// Add default user as admin
 			if (!userManager.IsInRole(user.Id, AdminRole))
-                userManager.AddToRole(user.Id, AdminRole);
+				userManager.AddToRole(user.Id, AdminRole);
 		}
 
-    }
+	}
 }

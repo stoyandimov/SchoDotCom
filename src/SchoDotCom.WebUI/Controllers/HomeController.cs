@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using SchoDotCom.WebUI.ViewModels.Home;
+using System.Web.Mvc;
 
 namespace SchoDotCom.WebUI.Controllers
 {
@@ -14,11 +15,12 @@ namespace SchoDotCom.WebUI.Controllers
 		[Route("about")]
 		public ActionResult About()
 		{
-			return View();
+			var viewModel = new AboutViewModel(1987);
+			return View(viewModel);
 		}
 
-		[Route("contact")]
-		public ActionResult Contact()
+		[Route("resume")]
+		public ActionResult Resume()
 		{
 			return View();
 		}
