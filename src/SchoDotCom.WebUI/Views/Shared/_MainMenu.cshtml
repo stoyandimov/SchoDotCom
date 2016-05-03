@@ -1,22 +1,39 @@
-﻿<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Stoyan Dimov", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <img src="https://www.gravatar.com/avatar/c0320baa25de1b5370675cbc18c2d532?s=200" alt="Stoyan Dimov" class="img-circle img-thumbnail" id="menuAvatarImage">
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Blog", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                @Html.Partial("_LoginPartial")
-            </ul>
+﻿<nav class="nav-container">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <img src="~/Media/Images/avatar-400.jpg" alt="Stoyan Dimov" class="img-circle " id="menuAvatarImage">
+                    stoyandimov.com
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+                <div class="pull-right social-media-container">
+                    <a target="_blank" href="https://twitter.com/StoyanDimov">
+                        <img src="~/Media/Images/social-link-icons/twitter-24.ico" />
+                    </a>
+                    <a target="_blank" href="https://linkedin.com/in/stoyandimov">
+                        <img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
+                    </a>
+                    <a target="_blank" href="https://github.com/stoyandimov">
+                        <img src="~/Media/Images/social-link-icons/github-24.ico" />
+                    </a>
+                    <a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
+                        <img src="~/Media/Images/social-link-icons/windows-24.ico" />
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</nav>

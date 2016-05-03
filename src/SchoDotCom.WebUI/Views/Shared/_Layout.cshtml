@@ -9,71 +9,15 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="nav-container">
-        <div class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/" class="navbar-brand">
-                        <img src="~/Media/Images/avatar-400.jpg" alt="Stoyan Dimov" class="img-circle " id="menuAvatarImage">
-                        stoyandimov.com
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-                        @Html.Partial("_LoginPartial")
-                    </ul>
-                    <div class="pull-right social-media-container">
-                        <a target="_blank" href="https://twitter.com/StoyanDimov">
-                            <img src="~/Media/Images/social-link-icons/twitter-24.ico" />
-                        </a>
-                        <a target="_blank" href="https://linkedin.com/in/stoyandimov">
-                            <img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
-                        </a>
-                        <a target="_blank" href="https://github.com/stoyandimov">
-                            <img src="~/Media/Images/social-link-icons/github-24.ico" />
-                        </a>
-                        <a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
-                            <img src="~/Media/Images/social-link-icons/windows-24.ico" />
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </nav>
-    <header style="height:150px">
-        
-    </header>
+    @Html.Partial("_MainMenu")
+    <header style="height:150px"></header>
     <main class="container">
         <div id="page@(ViewBag.Title)">
             <h2 class="heading-title">@ViewBag.Title</h2>
             @RenderBody()
         </div>
     </main>
-    <footer class="navbar-fixed-bottom navbar-default container">
-        <p class="pull-right">
-            @Html.ActionLink("About", "About", "Home") |
-            @Html.ActionLink("Resume", "Resume", "Home") |
-            @Html.ActionLink("Contact", "Index", "Contact")
-            @if (User.IsInRole("admin"))
-            {
-                @:| @Html.ActionLink("Admin Area", "Index", new { controller = "AdminHome", area = "Admin" })
-            }
-            @if (Request.IsAuthenticated)
-            {
-                @:| <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-            }
-        </p>
-        <p>&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
-    </footer>
+    @Html.Partial("_Footer")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
