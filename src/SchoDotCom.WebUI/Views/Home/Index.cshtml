@@ -1,74 +1,74 @@
 ﻿@{ 
-	Layout = null;
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>StoyanDimov.com</title>
-	<link rel="icon" href="http://0.gravatar.com/blavatar/2748420a254dfa3d07d389ea85795842?s=16" />
-	@Styles.Render("~/Content/css")
-	@Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoyanDimov.com</title>
+    <link rel="icon" href="http://0.gravatar.com/blavatar/2748420a254dfa3d07d389ea85795842?s=16" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body id="homeBackground">
-	<div id="pageHome">
-		<header>
-			<div class="container">
-				<div class="avatar img-circle img-thumbnail"></div>
-				<h1>Stoyan Dimov</h1>
-				<h4>web application developer</h4>
-			</div>
-		</header>
-		<nav class="nav-container">
-			<div class="navbar navbar-default">
-				<div class="container">
-					<div class="pull-left social-media-container">
-						<a target="_blank" href="https://twitter.com/StoyanDimov">
-							<img src="~/Media/Images/social-link-icons/twitter-24.ico" />
-						</a>
-						<a target="_blank" href="https://linkedin.com/in/stoyandimov">
-							<img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
-						</a>
-						<a target="_blank" href="https://github.com/stoyandimov">
-							<img src="~/Media/Images/social-link-icons/github-24.ico" />
-						</a>
-						<a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
-							<img src="~/Media/Images/social-link-icons/windows-24.ico" />
-						</a>
-					</div>
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li>@Html.ActionLink("About", "About", "Home")</li>
-							<li>@Html.ActionLink("Resume", "Resume", "Home")</li>
-							<li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-							@if (Request.IsAuthenticated)
-							{
-								<li>
-									@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-									{
-										@Html.AntiForgeryToken()
-									}
-									<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-								</li>
-							}
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
-		<footer class="navbar-fixed-bottom">
-			<p class="text-center">&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
-		</footer>
-	</div>
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/bootstrap")
+    <div id="pageHome">
+        <header>
+            <div class="container">
+                <div class="avatar img-circle img-thumbnail"></div>
+                <h1>Stoyan Dimov</h1>
+                <h4>web application developer</h4>
+            </div>
+        </header>
+        <nav class="nav-container">
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="pull-left social-media-container">
+                        <a target="_blank" href="https://twitter.com/StoyanDimov">
+                            <img src="~/Media/Images/social-link-icons/twitter-24.ico" />
+                        </a>
+                        <a target="_blank" href="https://linkedin.com/in/stoyandimov">
+                            <img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
+                        </a>
+                        <a target="_blank" href="https://github.com/stoyandimov">
+                            <img src="~/Media/Images/social-link-icons/github-24.ico" />
+                        </a>
+                        <a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
+                            <img src="~/Media/Images/social-link-icons/windows-24.ico" />
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li>
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                    }
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <footer class="navbar-fixed-bottom">
+            <p class="text-center">&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>

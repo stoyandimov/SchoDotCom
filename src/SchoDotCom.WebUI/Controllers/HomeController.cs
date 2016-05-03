@@ -3,26 +3,26 @@ using System.Web.Mvc;
 
 namespace SchoDotCom.WebUI.Controllers
 {
-	[RoutePrefix("")]
-	public class HomeController : Controller
-	{
-		[Route]
-		public ActionResult Index()
-		{
-			return View();
-		}
+    [RoutePrefix("")]
+    public class HomeController : Controller
+    {
+        [Route]
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-		[Route("about")]
-		public ActionResult About()
-		{
-			var viewModel = new AboutViewModel(1987);
-			return View(viewModel);
-		}
+        [Route("about")]
+        public ActionResult About()
+        {
+            var viewModel = new AboutViewModel(1987);
+            return View(viewModel);
+        }
 
-		[Route("resume")]
-		public ActionResult Resume()
-		{
-			return View();
-		}
-	}
+        [Route("resume")]
+        public ActionResult Resume()
+        {
+            return View();
+        }
+    }
 }

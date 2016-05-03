@@ -7,11 +7,11 @@
 <h2>@ViewBag.Title</h2>
 
 <ul class="list-group">
-	<li class="list-group-item disabled">@Model.Role.Name</li>
-	@foreach (var user in Model.Users)
-	{
-		<li class="list-group-item">
-			@Html.ActionLink(user.UserName, "Details", new { controller = "Users", id = user.Id })
-		</li>
-	}
+    <li class="list-group-item disabled">@Model.Role.Name</li>
+    @foreach (var user in Model.Users)
+    {
+        <li class="list-group-item">
+            @Html.ActionLink(user.UserName, "Details", new { controller = "Users", id = user.Id })
+        </li>
+    }
 </ul>
