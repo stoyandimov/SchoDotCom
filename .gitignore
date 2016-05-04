@@ -1,7 +1,7 @@
 # Config files
 src/SchoDotCom.WebUI/web.config
-
-/docs
+src/SchoDotCom.WebUI/Web.*.config 
+!src/SteamIO.WebUI/Web.Base.config
 
 # Elmah error logs
 src/SchoDotCom.WebUI/App_Data/logs/elmah
