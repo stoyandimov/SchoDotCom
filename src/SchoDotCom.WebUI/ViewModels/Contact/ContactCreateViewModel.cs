@@ -2,7 +2,7 @@
 
 namespace SchoDotCom.WebUI.ViewModels.Contact
 {
-    public class ContactViewModel
+    public class ContactCreateViewModel
     {
         [Required]
         public string Name { get; set; }

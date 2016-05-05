@@ -5,6 +5,17 @@
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 
     <appSettings>
+        <!-- Contact Details -->
+        <add key="schodotcom:IncludeContactDetails" value="[true|false]"
+             xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
+        <add key="schodotcom:PhoneNumber" value="[phone-number]"
+             xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
+        <add key="schodotcom:EmailAddress" value="[email-address]"
+             xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
+        <add key="schodotcom:Address" value="[address]"
+             xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
+
+        <!-- Default User Setting -->
         <add key="schodotcom:DefaultUsername" value="[your-email]"
              xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
         <add key="schodotcom:DefaultPassword" value="[your-password]"
