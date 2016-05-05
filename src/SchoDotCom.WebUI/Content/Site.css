@@ -91,6 +91,9 @@ p, div {
 /**
  * Layout
  */
+footer {
+    padding-top: 30px;
+}
 
 .nav-container .social-media-container {
     padding: 15px 0;
@@ -110,12 +113,12 @@ p, div {
     opacity:1;
 }
 
-header *{
+header * {
     color: #fff;
 }
 header {
     margin-top: -20px;
-    background:  url('/Media/Images/bg-noise-transparent.png') #03a9f4;
+    background-color: #03a9f4;
     padding: 15px 0;
     box-shadow: 0 0 3px #555;
 }
@@ -125,7 +128,7 @@ header {
  */
 #pageHome header {
     margin-top: 10%;
-    background:  url('/Media/Images/bg-noise-transparent.png') #03a9f4;
+    background: #03a9f4;
     padding: 15px 0;
     box-shadow: 0 0 2px #555;
 }
@@ -178,7 +181,7 @@ main #pageAbout {
     margin-top: -104px;
     border-radius:2px;
     padding-left: 20px;
-    background:  url('/Media/Images/bg-noise-transparent.png') #fff;
+    background:  #fff;
     box-shadow: 0 0 3px #555;
 }
 
@@ -186,6 +189,33 @@ main #pageAbout {
     width: 17px;
     height: 15px;
 }
+
+
+/**
+ * PAGE Resume
+ */
+main #pageResume {
+    margin-top: -104px;
+    border-radius:2px;
+    background-color: #fff;
+    box-shadow: 0 0 3px #555;
+}
+#pageResume .resume-header {
+    margin-top: -104px;
+    border-radius:2px;
+}
+
+#pageResume .avatar-image {
+    max-width: 100%;
+}
+
+#pageResume .resume-main {
+    padding: 0 15px;
+}
+#pageResume .separator {
+    box-shadow: inset 0px 3px 3px -4px #555 ;
+}
+
 
 /**
  * PAGE Contact
@@ -206,7 +236,7 @@ main #pageAbout {
     border-radius:2px;
     padding-left: 20px;
     padding-right: 20px;
-    background:  url('/Media/Images/bg-noise-transparent.png') #fff;
+    background-color: #fff;
     box-shadow: 0 0 3px #555;
 }
 #pageContact .heading-title {

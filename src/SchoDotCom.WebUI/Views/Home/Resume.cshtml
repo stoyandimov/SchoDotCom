@@ -1,4 +1,87 @@
-﻿@{
+﻿@model SchoDotCom.WebUI.ViewModels.Home.ResumeViewModel
+@{
     ViewBag.Title = "Resume";
 }
-<p class="text-muted">Todo: add content</p>
+<div class="row resume-header">
+    <div class="col-md-5">
+        <img class="avatar-image" alt="Stoyan Dimov" src="~/Media/Images/avatar-400.jpg" />
+    </div>
+    <div class="col-md-7">
+        <div class="panel-body">
+            <h2>Stoyan Dimov</h2>
+            <h3>Web application developer</h3>
+            <hr />
+            @if (Model.IncludeContactDetails)
+            {
+                <p><i class="glyphicon glyphicon-phone"></i> @Model.PhoneNumber</p>
+                <p><i class="glyphicon glyphicon-envelope"></i> @Model.EmailAddress</p>
+                <p><i class="glyphicon glyphicon-map-marker"></i> @Model.Address</p>
+            }
+            else
+            {
+                <p><i class="glyphicon glyphicon-map-marker"></i> Haarlem, The Netherlands</p>
+            }
+        </div>
+    </div>
+</div>
+<div class="row"><div class="col-md-12"><div class="separator">&nbsp;</div></div></div>
+<div class="row resume-main">
+    <div class="col-md-5">
+        <div class="panel-body">
+            <h2>Knowledge</h2>
+            <ul>
+                <li>Mvc Architecture</li>
+                <li>Object-Oriented Programming</li>
+                <li>Microsoft Technologies</li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <h2>Skills</h2>
+            <ul>
+                <li>C#</li>
+                <li>HTML</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <h2>Contacts</h2>
+            <ul>
+                <li>Twitter: @@StoyanDimov</li>
+                <li>LinkedIN: StoyanDimov</li>
+                @if (Model.IncludeContactDetails)
+                {
+                    <li>Email: @Model.EmailAddress</li>
+                    <li>Phone Number: @Model.PhoneNumber</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="panel-body">
+            <h2>@Model.YearsOfExperience years of experience</h2>
+            <ul>
+                <li>Internship: Floor Manager Assistant at Calling Global B.V.</li>
+                <li>Internship: Web Developer at Easy Settings B.V.</li>
+                <li>Senior Software Developer at Codelogic B.V.</li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    Hogeschool van Arnhem en Nijmegen
+                    Bachelor of Business Administration (B.B.A.), Human Resources and Quality Management
+                </li>
+                <li>
+                    International University College
+                    Bachelor, Hospitality Management
+                </li>
+                <li>
+                    High School "Dora Gabe" - Dobrich
+                    Secondary Education, Visual Arts
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
