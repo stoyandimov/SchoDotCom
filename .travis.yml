@@ -1,2 +1,12 @@
 language: csharp
 solution: SchoDotCom.sln
+
+before_script:
+ - chmod +x ./build-ci.sh
+ - cp ./src/SchoDotCom.WebUI/Web.Base.config ./src/SchoDotCom.WebUI/Web.config
+
+script:
+ - ./build-ci.sh
+
+after_script:
+ - rm./src/SchoDotCom.WebUI/Web.config
