@@ -3,6 +3,9 @@ src/SchoDotCom.WebUI/web.config
 src/SchoDotCom.WebUI/Web.*.config 
 !src/SteamIO.WebUI/Web.Base.config
 
+#Publish Profiles
+*.pubxml
+
 # Elmah error logs
 src/SchoDotCom.WebUI/App_Data/logs/elmah
 
