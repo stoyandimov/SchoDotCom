@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using SchoDotCom.WebUI.Filters;
+using System.Configuration;
+using System.Web.Mvc;
 
 namespace SchoDotCom.WebUI
 {
@@ -6,7 +8,15 @@ namespace SchoDotCom.WebUI
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            if (ConfigurationManager.AppSettings["applicationinsights:EnableServerSideMonitoring"] == "true")
+            {
+                // Inherits from HandleErrorAttribute
+                filters.Add(new AiHandleErrorAttribute());
+            }
+            else
+            {
+                filters.Add(new HandleErrorAttribute());
+            }
         }
     }
 }
