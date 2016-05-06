@@ -1,1 +1,1 @@
-xbuild /p:Configuration=CI SchoDotCom.sln
+xbuild /p:Configuration=CI SchoDotCom.sln /p:TargetFrameworkVersion="v4.5"
