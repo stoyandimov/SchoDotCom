@@ -8,9 +8,9 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body id="body@(ViewBag.Title)">
     @Html.Partial("_MainMenu")
-    <header style="height:150px"></header>
+    <header></header>
     <main class="container">
         <div id="page@(ViewBag.Title)">
             @RenderBody()

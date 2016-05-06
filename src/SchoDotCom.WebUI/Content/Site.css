@@ -23,45 +23,6 @@ textarea {
     max-width: 280px;
 }
 
-/*header {
-    margin-top: -21px;
-    padding: 15px 0;
-    background: #2e7bcf url("../Media/Images/header-bg.jpg") repeat-x scroll 0 0;
-    border: 1px solid #275da1;
-    color: #ffffff;
-    height: 162px;
-}*/
-#headingAvatarImage {
-    border: 7px solid #fff;
-}
-
-#avatarContainer {
-    /*margin-top: 69px;*/
-    margin-top: 9px;
-    margin-left: -15px;
-    height: 196px;
-    width: 196px;
-    border: 1px solid #275da1;
-}
-
-#mainTitle {
-    color:#eee;
-    margin-top: 19px;
-}
-#subTitle {
-    margin-top: 20px;
-}
-
-#menuAvatarImage {
-    margin-top: -13px;
-    margin-right: 6px;
-    float:left;
-    height: 52px;
-    -ms-transform: rotate(27deg); /* IE 9 */
-    -webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
-    transform: rotate(27deg);
-    border:2px solid #bababa;
-}
 
 @media (min-width: 1200px) {
     .container {
@@ -79,22 +40,21 @@ p, div {
     font-size: 106%;
 }
 
-
-.social-media-bottom-container img {
-    background-color: #2196f3;
-    border-radius: 2px;
-    padding: 5px;
-    margin-left: 4px;
-    height: 25px;
-}
-
 /**
  * Layout
  */
-footer {
-    padding-top: 30px;
-}
 
+/* Main Menu */
+#menuAvatarImage {
+    margin-top: -13px;
+    margin-right: 6px;
+    float:left;
+    height: 52px;
+    -ms-transform: rotate(27deg); /* IE 9 */
+    -webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
+    transform: rotate(27deg);
+    border:2px solid #bababa;
+}
 .nav-container .social-media-container {
     padding: 15px 0;
     opacity: 0.7;
@@ -108,19 +68,26 @@ footer {
     height: 24px;
     opacity:0.8;
 }
-
 .nav-container .social-media-container img:hover{
     opacity:1;
 }
 
-header * {
-    color: #fff;
-}
+/* Header */
 header {
     margin-top: -20px;
     background-color: #03a9f4;
     padding: 15px 0;
     box-shadow: 0 0 3px #555;
+    height:150px;
+}
+.heading-title {
+    margin-top: 11px;
+    padding-top: 0;
+}
+
+/* Footer */
+footer {
+    padding-top: 30px;
 }
 
 /**
@@ -131,14 +98,10 @@ header {
     background: #03a9f4;
     padding: 15px 0;
     box-shadow: 0 0 2px #555;
+    height: auto;
 }
 #pageHome header * {
     color: #fff;
-}
-#pageHome .img-thumbnail {
-    background-color: #e1f5fe; 
-    border: 0;
-    box-shadow: 0 0 5px 0px #555;
 }
 #pageHome .navbar {
     margin-top: 2px;
@@ -161,33 +124,31 @@ header {
     background-image: url('../Media/Images/avatar-400.jpg');
     width:140px;
     height:140px;
+    box-shadow: 0 0 5px 0px #555;
 }
 #homeBackground {
-    background:  url('/Media/Images/bg-noise.png') #fff;
+    background-image:  url('/Media/Images/bg-noise-transparent.png');
 }
 
 /**
  * PAGE About
  */
-#pageAbout img.avatar-image {
+#pageAbout .avatar-image {
     width:100%;
-    margin-top:-81px;
 }
-#pageAbout h2 {
-    padding-top:20px;
-}
-
 main #pageAbout {
-    margin-top: -104px;
+    margin-top: -73px;
     border-radius:2px;
-    padding-left: 20px;
     background:  #fff;
     box-shadow: 0 0 3px #555;
 }
-
+#pageAbout table {
+    margin-bottom: 0;
+}
 #pageAbout .flag-image {
     width: 17px;
     height: 15px;
+    opacity: 0.5
 }
 
 
@@ -201,50 +162,56 @@ main #pageResume {
     box-shadow: 0 0 3px #555;
 }
 #pageResume .resume-header {
-    margin-top: -104px;
+    margin-top: -292px;
     border-radius:2px;
 }
-
 #pageResume .avatar-image {
     max-width: 100%;
 }
-
 #pageResume .resume-main {
     padding: 0 15px;
 }
+#bodyResume header {
+    height: 355px;
+}
 #pageResume .separator {
-    box-shadow: inset 0px 3px 3px -4px #555 ;
+    box-shadow: inset 0px 3px 3px -4px #555;
+}
+#pageResume .resume-header ul {
+    list-style-type: none;
+    margin-bottom: 0;
+}
+#pageResume .resume-header li {
+    margin:1px 0;
 }
 
+#pageResume .small-avatar {
+    min-height: 100px;
+    min-width: 100px;
+     -ms-transform: rotate(27deg); /* IE 9 */
+    -webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
+    transform: rotate(27deg);
+}
 
 /**
  * PAGE Contact
  */
-#pageContact table {
-    margin-top:22px;
-}
-#pageContact h2 {
-    padding-top:20px;
-    margin-bottom: -12px;
+#pageContact {
+    border-bottom: 1px solid #eee;
 }
 #pageContact table td {
     margin-top:22px;
     padding: 12px 10px;
 }
-#pageContact .col {
-    margin-top: -104px;
-    border-radius:2px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 3px #555;
+#pageContact table td img {
+    opacity: 0.7;
 }
-#pageContact .heading-title {
-    display:none;	
+#pageContact table td img:hover {
+    opacity: 0.9;
 }
 #pageContact #Message {
     background-color: transparent;
 }
-#pageContact .col-contact {
-    margin-bottom: 170px;
+#bodyContact header {
+    height: 75px;
 }

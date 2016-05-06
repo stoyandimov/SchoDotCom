@@ -3,30 +3,39 @@
     ViewBag.Title = "Resume";
 }
 <div class="row resume-header">
-    <div class="col-md-5">
+    <div class="col-md-4 hidden-sm hidden-xs">
         <img class="avatar-image" alt="Stoyan Dimov" src="~/Media/Images/avatar-400.jpg" />
     </div>
-    <div class="col-md-7">
+    <div class="col-md-8">
         <div class="panel-body">
-            <h2>Stoyan Dimov</h2>
-            <h3>Web application developer</h3>
+            <div class="row">
+                <div class="col-sm-4 col-xs-5 hidden-md hidden-lg">
+                    <img class="img-circle img-thumbnail small-avatar" src="~/Media/Images/avatar-400.jpg" />
+                </div>
+                <div class="col-sm-8 col-xs-7">
+                    <h2>Stoyan Dimov</h2>
+                    <h4>Web application developer</h4>
+                </div>
+            </div>
             <hr />
+            <ul class="list-group">
             @if (Model.IncludeContactDetails)
             {
-                <p><i class="glyphicon glyphicon-phone"></i> @Model.PhoneNumber</p>
-                <p><i class="glyphicon glyphicon-envelope"></i> @Model.EmailAddress</p>
-                <p><i class="glyphicon glyphicon-map-marker"></i> @Model.Address</p>
+                <li><i class="glyphicon glyphicon-phone"></i> @Model.PhoneNumber</li>
+                <li><i class="glyphicon glyphicon-envelope small"></i> @Model.EmailAddress</li>
+                <li><i class="glyphicon glyphicon-map-marker"></i> @Model.Address</li>
             }
             else
             {
-                <p><i class="glyphicon glyphicon-map-marker"></i> Haarlem, The Netherlands</p>
+                <li><i class="glyphicon glyphicon-map-marker"></i> Haarlem, The Netherlands</li>
             }
+            </ul>
         </div>
     </div>
 </div>
 <div class="row"><div class="col-md-12"><div class="separator">&nbsp;</div></div></div>
 <div class="row resume-main">
-    <div class="col-md-5">
+    <div class="col-md-4">
         <div class="panel-body">
             <h2>Knowledge</h2>
             <ul>
@@ -44,20 +53,8 @@
                 <li>PHP</li>
             </ul>
         </div>
-        <div class="panel-body">
-            <h2>Contacts</h2>
-            <ul>
-                <li>Twitter: @@StoyanDimov</li>
-                <li>LinkedIN: StoyanDimov</li>
-                @if (Model.IncludeContactDetails)
-                {
-                    <li>Email: @Model.EmailAddress</li>
-                    <li>Phone Number: @Model.PhoneNumber</li>
-                }
-            </ul>
-        </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-8">
         <div class="panel-body">
             <h2>@Model.YearsOfExperience years of experience</h2>
             <ul>

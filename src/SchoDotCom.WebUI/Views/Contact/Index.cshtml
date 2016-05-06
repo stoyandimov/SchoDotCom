@@ -2,127 +2,115 @@
 @{
     ViewBag.Title = "Contact";
 }
+<h2>@ViewBag.Title</h2>
+<hr />
 <div class="row">
-    <div class="col-contact col-md-7">
-        <div class="col">
-            <h2>@ViewBag.Title</h2>
-            <hr />
-            @if (Model.IsSent)
+    <div class="col-md-9">
+        @if (Model.IsSent)
+        {
+            <p class="alert alert-success">
+                <i class="glyphicon glyphicon-ok"></i>&nbsp;
+                Message successfully sent. Redirecting to home page in <span id="redirectCounter">4</span> second(s)
+            </p>
+        }
+        else
+        {
+            using (Html.BeginForm())
             {
-                <p class="alert alert-success">
-                    <i class="glyphicon glyphicon-ok"></i>&nbsp;
-                    Message successfully sent. Redirecting to home page in <span id="redirectCounter">4</span> second(s)
-                </p>
-            }
-            else
-            {
-                using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="form-horizontal">
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3 small" })
-                            <div class="col-md-9">
-                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger small" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3 small" })
-                            <div class="col-md-9">
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger small" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-3 small" })
-                            <div class="col-md-9">
-                                @Html.TextAreaFor(model => model.Message, 4, 44, new { htmlAttributes = new { @class = "form-control" } })
-                                <p id="messageLenght" class="text-muted small">Type your message above</p>
-                                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger small" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-offset-3 col-md-9">
-                                <input type="submit" value="Send Message" class="btn btn-default" />
-                                <br />
-                            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3 small" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger small" })
                         </div>
                     </div>
-                }
-                <p class="text-center text-muted">
-                    Problem with the website? Why not directly
-                    <a href="https://github.com/stoyandimov/SchoDotCom/issues/new" target="_blank">
-                        create a GitHub issue?
-                    </a>
-                </p>
-            }
-        </div>
-    </div>
 
-    <div class="col-md-5">
-        <div class="col">
-            <h2>Links</h2>
-            <div class="contact-social-media-container">
-                <table class="table social-media-container">
-                    <tr>
-                        <td>
-                            <a target="_blank" href="https://twitter.com/StoyanDimov">
-                                <img src="~/Media/Images/social-link-icons/twitter-24.ico" />
-                            </a>
-                        </td>
-                        <td>@@StoyanDimov </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a target="_blank" href="https://linkedin.com/in/stoyandimov">
-                                <img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
-                            </a>
-                        </td>
-                        <td>stoyandimov</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a target="_blank" href="https://github.com/stoyandimov">
-                                <img src="~/Media/Images/social-link-icons/github-24.ico" />
-                            </a>
-                        </td>
-                        <td>stoyandimov</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a target="_blank" href="http://stackoverflow.com/users/1258925/stoyan-dimov">
-                                <img src="~/Media/Images/social-link-icons/stackoverflow-24.ico" />
-                            </a>
-                        </td>
-                        <td>stoyan-dimov</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
-                                <img src="~/Media/Images/social-link-icons/windows-24.ico" />
-                            </a>
-                        </td>
-                        <td>Microsoft Certification Profile <br /> MSID: 4978868885</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3 small" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger small" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-3 small" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.Message, 4, 44, new { htmlAttributes = new { @class = "form-control" } })
+                            <p id="messageLenght" class="text-muted small">Type your message above</p>
+                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger small" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" value="Send Message" class="btn btn-default" />
+                            <br />
+                            <p class="text-muted small">
+                                Problem with the website?
+                                <a class="small" href="https://github.com/stoyandimov/SchoDotCom/issues/new" target="_blank">
+                                    Create a GitHub issue.
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-md-3 hidden-sm hidden-xs">
+        <table class="pull-right">
+            <tr>
+                <td class="text-right">@@StoyanDimov </td>
+                <td>
+                    <a target="_blank" href="https://twitter.com/StoyanDimov">
+                        <img src="~/Media/Images/social-link-icons/twitter-24.ico" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">stoyandimov</td>
+                <td>
+                    <a target="_blank" href="https://linkedin.com/in/stoyandimov">
+                        <img src="~/Media/Images/social-link-icons/linkedin-24.ico" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">stoyandimov</td>
+                <td>
+                    <a target="_blank" href="https://github.com/stoyandimov">
+                        <img src="~/Media/Images/social-link-icons/github-24.ico" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">stoyan-dimov</td>
+                <td>
+                    <a target="_blank" href="http://stackoverflow.com/users/1258925/stoyan-dimov">
+                        <img src="~/Media/Images/social-link-icons/stackoverflow-24.ico" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">Microsoft Certification</td>
+                <td>
+                    <a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
+                        <img src="~/Media/Images/social-link-icons/windows-24.ico" />
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 
-
-
-
-
 @section Scripts
 {
-    @Scripts.Render("~/bundles/jqueryval");
+    @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
         // Message length counter
         $(function () {
