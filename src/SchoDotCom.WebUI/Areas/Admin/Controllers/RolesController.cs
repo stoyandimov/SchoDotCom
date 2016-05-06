@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SchoDotCom.WebUI.Areas.Admin.Models;
+using SchoDotCom.WebUI.Models;
 using System;
 using System.Linq;
 using System.Web.Mvc;

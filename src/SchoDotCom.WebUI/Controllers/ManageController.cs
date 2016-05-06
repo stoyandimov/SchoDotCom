@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SchoDotCom.WebUI.Models;
 using SchoDotCom.WebUI.ViewModels.Manage;
 using System.Linq;
 using System.Threading.Tasks;
