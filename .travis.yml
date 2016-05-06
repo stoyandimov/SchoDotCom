@@ -1,2 +1,4 @@
 language: csharp
 solution: SchoDotCom.sln
+script:
+  - ./build-ci.sh
