@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-3 col-md-9">
-                            <input type="submit" value="Send Message" class="btn btn-default" />
+                            <input type="submit" value="Send Message" class="btn btn-muted" disabled />
                             <br />
                             <p class="text-muted small">
                                 Problem with the website?
@@ -108,10 +108,41 @@
     </div>
 </div>
 
+<div id="contactDisabledModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">stoyandimov.com</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    The contact form is temporary disabled!
+                    <br />
+                    Consider reaching me on
+                    <a target="_blank" href="https://twitter.com/StoyanDimov">Twitter</a>
+                    or
+                    <a target="_blank" href="https://linkedin.com/in/stoyandimov">Linked IN</a>.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Alright</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
+        // Contact form diabled notification
+        $(function () {
+            $('input, textarea').focus(function () {
+                $('#contactDisabledModal').modal();
+            });
+        });
+
         // Message length counter
         $(function () {
             var message = $('#Message');
