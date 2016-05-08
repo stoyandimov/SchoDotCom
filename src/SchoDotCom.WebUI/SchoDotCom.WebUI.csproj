@@ -271,8 +271,9 @@
     <Compile Include="Models\ApplicationSignInManager.cs" />
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\IMailService.cs" />
+    <Compile Include="Models\SendGridEmailService.cs" />
     <Compile Include="Models\SmsService.cs" />
-    <Compile Include="Models\EmailService.cs" />
     <Compile Include="ViewModels\Account\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="ViewModels\Manage\ManageViewModels.cs" />

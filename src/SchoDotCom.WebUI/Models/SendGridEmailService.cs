@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNet.Identity;
 using SendGrid;
 using System.Configuration;
+using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace SchoDotCom.WebUI.Models
 {
-    public class EmailService : IIdentityMessageService
+    public class SendGridEmailService : IIdentityMessageService, IMailService
     {
         public Task SendAsync(IdentityMessage message)
         {
@@ -22,7 +23,20 @@ namespace SchoDotCom.WebUI.Models
             return SendAsync(sendGridMessage);
         }
 
-        public Task SendAsync(SendGridMessage message)
+        public Task SendAsync(MailMessage message)
+        {
+            var sendGridMessage = new SendGridMessage()
+            {
+                From = new MailAddress(message.From.Address, message.From.DisplayName),
+                Subject = message.Subject,
+                Text = message.Body
+            };
+            sendGridMessage.AddTo(message.To.Select(m => m.Address));
+
+            return SendAsync(sendGridMessage);
+        }
+
+        protected Task SendAsync(SendGridMessage message)
         {
             var apiKey = ConfigurationManager.AppSettings["sendgrid:ApiKey"] as string;
 
