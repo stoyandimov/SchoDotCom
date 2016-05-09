@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Identity;
-using SendGrid;
 using System.Configuration;
 using System.Linq;
 using System.Net.Mail;
@@ -11,21 +10,20 @@ namespace SchoDotCom.WebUI.Models
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Create the email object first, then add the properties.
-            var sendGridMessage = new SendGridMessage()
+            var mailMessage = new MailMessage()
             {
-                From = new MailAddress("john@example.com", "John Smith"),
+                From = new MailAddress(message.Destination),
                 Subject = message.Subject,
-                Text = message.Body
+                Body = message.Body
             };
-            sendGridMessage.AddTo(message.Destination);
+            mailMessage.To.Add(message.Destination);
 
-            return SendAsync(sendGridMessage);
+            return SendAsync(mailMessage);
         }
 
         public Task SendAsync(MailMessage message)
         {
-            var sendGridMessage = new SendGridMessage()
+            var sendGridMessage = new SendGrid.SendGridMessage()
             {
                 From = new MailAddress(message.From.Address, message.From.DisplayName),
                 Subject = message.Subject,
@@ -36,12 +34,12 @@ namespace SchoDotCom.WebUI.Models
             return SendAsync(sendGridMessage);
         }
 
-        protected Task SendAsync(SendGridMessage message)
+        protected Task SendAsync(SendGrid.SendGridMessage message)
         {
             var apiKey = ConfigurationManager.AppSettings["sendgrid:ApiKey"] as string;
 
             // Create an Web transport for sending email.
-            var transportWeb = new Web(apiKey);
+            var transportWeb = new SendGrid.Web(apiKey);
 
             return transportWeb.DeliverAsync(message);
         }
