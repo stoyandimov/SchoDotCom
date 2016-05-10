@@ -49,10 +49,6 @@
       <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EASendMail45, Version=7.3.0.1, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EASendMail.7.3.0.1\lib\net45\EASendMail45.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
@@ -277,7 +273,6 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\DefaultEmailService.cs" />
     <Compile Include="Models\IMailService.cs" />
-    <Compile Include="Models\EASendMailEmailService.cs" />
     <Compile Include="Models\SendGridEmailService.cs" />
     <Compile Include="Models\SmsService.cs" />
     <Compile Include="ViewModels\Account\AccountViewModels.cs" />

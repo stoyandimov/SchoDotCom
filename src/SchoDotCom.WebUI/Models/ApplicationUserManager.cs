@@ -50,7 +50,8 @@ namespace SchoDotCom.WebUI.Models
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
             });
-            manager.EmailService = new EASendMailEmailService();
+            manager.EmailService = System.Web.Mvc.DependencyResolver
+                .Current.GetService(typeof(IIdentityMessageService)) as IIdentityMessageService;
             manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
