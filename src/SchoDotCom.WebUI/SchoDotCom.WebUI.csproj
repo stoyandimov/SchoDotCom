@@ -275,6 +275,7 @@
     <Compile Include="Models\ApplicationSignInManager.cs" />
     <Compile Include="Models\ApplicationUserManager.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\DefaultEmailService.cs" />
     <Compile Include="Models\IMailService.cs" />
     <Compile Include="Models\EASendMailEmailService.cs" />
     <Compile Include="Models\SendGridEmailService.cs" />
@@ -352,6 +353,7 @@
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>

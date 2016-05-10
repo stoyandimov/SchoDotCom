@@ -38,9 +38,9 @@ namespace SchoDotCom.WebUI.Controllers
                     var msg = new MailMessage()
                     {
                         Body = contact.Message,
-                        Subject = "SchoDotCom contact form submission",
-                        From = new MailAddress(contact.Email, contact.Name)
+                        Subject = $"SchoDotCom::Contact: {contact.Name} ({contact.Email})",
                     };
+                    msg.ReplyToList.Add(new MailAddress(contact.Email, contact.Name));
                     msg.To.Add(ConfigurationManager.AppSettings["schodotcom:DefaultUsername"] as string);
                     EmailService.SendAsync(msg).Wait();
                 }

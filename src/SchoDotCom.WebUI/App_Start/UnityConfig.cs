@@ -46,7 +46,7 @@ namespace SchoDotCom.WebUI.App_Start
 
             container.RegisterType<RoleManager<IdentityRole>>();
             container.RegisterType<IRoleStore<IdentityRole, string>, RoleStore<IdentityRole>>();
-            container.RegisterType<IMailService, EASendMailEmailService>();
+            container.RegisterType<IMailService, DefaultEmailService>();
             //container.RegisterType<>
         }
     }

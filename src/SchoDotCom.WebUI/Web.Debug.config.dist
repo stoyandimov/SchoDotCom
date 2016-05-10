@@ -14,6 +14,15 @@
              
     </appSettings>
 
+    <system.net>
+        <mailSettings>
+            <smtp from="[your-email]" deliveryMethod="Network"
+                  xdt:Transform="Insert">
+                <network host="[your-host]" enableSsl="[true|false]" port="[your-port]" userName="[your-userName]" password="[your-password]" />
+            </smtp>
+        </mailSettings>
+    </system.net>
+
     <connectionStrings>
         <add name="DefaultConnection" connectionString="[your-connection-string]"
              xdt:Transform="SetAttributes(connectionString)" xdt:Locator="Match(name)" />
