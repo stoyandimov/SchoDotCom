@@ -18,6 +18,7 @@
 
     <system.net>
         <mailSettings>
+            <smtp xdt:Transform="Remove" />
             <smtp from="[your-email]" deliveryMethod="Network"
                   xdt:Transform="Insert">
                 <network host="[your-host]" enableSsl="[true|false]" port="[your-port]" userName="[your-userName]" password="[your-password]" />
