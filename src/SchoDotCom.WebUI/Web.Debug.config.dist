@@ -12,6 +12,8 @@
         <add key="sendgrid:ApiKey" value="[your-api-key]"
              xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
              
+        <add key="googleanalytics:EnableAnalytics" value="[true|false]"
+             xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
     </appSettings>
 
     <system.net>
