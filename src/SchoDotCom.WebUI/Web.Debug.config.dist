@@ -11,8 +11,14 @@
              xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
         <add key="sendgrid:ApiKey" value="[your-api-key]"
              xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
-             
+
+        <!-- Analytics -->
         <add key="googleanalytics:EnableAnalytics" value="[true|false]"
+             xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
+
+        <add key="applicationinsights:EnableClientSideAnalytics" value="[true|false]"
+             xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
+        <add key="applicationinsights:EnableServerSideMonitoring" value="[true|false]"
              xdt:Transform="SetAttributes(value)" xdt:Locator="Match(key)" />
     </appSettings>
 
