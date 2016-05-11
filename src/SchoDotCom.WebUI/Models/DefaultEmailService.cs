@@ -25,7 +25,7 @@ namespace SchoDotCom.WebUI.Models
         public Task SendAsync(MailMessage message)
         {
             var client = new SmtpClient();
-            return Task.Run(() => client.SendAsync(message, null));
+            return Task.Run(() => client.Send(message));
         }
     }
 }
