@@ -163,6 +163,7 @@ main #pageResume {
 }
 #pageResume .resume-header {
     margin-top: -293px;
+    height: 293px;
     border-radius:2px;
 }
 #pageResume .avatar-image {
