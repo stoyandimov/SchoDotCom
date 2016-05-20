@@ -549,6 +549,29 @@
     <Content Include="Custom\Controls\Defaults\CommentView.ascx" />
     <Content Include="Custom\Controls\Defaults\PostView.ascx" />
     <Content Include="Custom\Media\sample.flv" />
+    <Content Include="Custom\Themes\SchoDotCom\CommentForm.ascx" />
+    <Content Include="Custom\Themes\SchoDotCom\CommentView.ascx" />
+    <Content Include="Custom\Themes\SchoDotCom\css\bootstrap.min.css" />
+    <Content Include="Custom\Themes\SchoDotCom\css\main.css" />
+    <Content Include="Custom\Themes\SchoDotCom\css\paper.bootstrap.min.css" />
+    <Content Include="Custom\Themes\SchoDotCom\css\responsive.css" />
+    <Content Include="Custom\Themes\SchoDotCom\css\rtl.css" />
+    <Content Include="Custom\Themes\SchoDotCom\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Custom\Themes\SchoDotCom\images\carrow.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\facebook.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\googleplus.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\logo.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\rss.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\sarrow.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\twitter.png" />
+    <Content Include="Custom\Themes\SchoDotCom\js\bootstrap.min.js" />
+    <Content Include="Custom\Themes\SchoDotCom\newsletter.html" />
+    <Content Include="Custom\Themes\SchoDotCom\PostNavigation.ascx" />
+    <Content Include="Custom\Themes\SchoDotCom\PostView.ascx" />
+    <Content Include="Custom\Themes\SchoDotCom\RelatedPosts.ascx" />
+    <Content Include="Custom\Themes\SchoDotCom\theme.png" />
+    <Content Include="Custom\Themes\SchoDotCom\theme.xml" />
+    <Content Include="Custom\Themes\SchoDotCom\WidgetContainer.ascx" />
     <Content Include="Custom\Themes\Standard-2015\CommentForm.ascx" />
     <Content Include="Custom\Themes\Standard-2015\CommentView.ascx" />
     <Content Include="Custom\Themes\Standard-2015\css\bootstrap.min.css" />
@@ -556,12 +579,21 @@
     <Content Include="Custom\Themes\Standard-2015\css\responsive.css" />
     <Content Include="Custom\Themes\Standard-2015\css\rtl.css" />
     <Content Include="Custom\Themes\Standard-2015\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Custom\Themes\SchoDotCom\images\avatar-400.jpg" />
+    <Content Include="Custom\Themes\SchoDotCom\images\bg-noise-transparent.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\bg-noise.png" />
     <Content Include="Custom\Themes\Standard-2015\images\carrow.png" />
     <Content Include="Custom\Themes\Standard-2015\images\facebook.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\favicon.png" />
     <Content Include="Custom\Themes\Standard-2015\images\googleplus.png" />
     <Content Include="Custom\Themes\Standard-2015\images\logo.png" />
     <Content Include="Custom\Themes\Standard-2015\images\rss.png" />
     <Content Include="Custom\Themes\Standard-2015\images\sarrow.png" />
+    <Content Include="Custom\Themes\SchoDotCom\images\social-link-icons\github-24.ico" />
+    <Content Include="Custom\Themes\SchoDotCom\images\social-link-icons\linkedin-24.ico" />
+    <Content Include="Custom\Themes\SchoDotCom\images\social-link-icons\stackoverflow-24.ico" />
+    <Content Include="Custom\Themes\SchoDotCom\images\social-link-icons\twitter-24.ico" />
+    <Content Include="Custom\Themes\SchoDotCom\images\social-link-icons\windows-24.ico" />
     <Content Include="Custom\Themes\Standard-2015\images\twitter.png" />
     <Content Include="Custom\Themes\Standard-2015\js\bootstrap.min.js" />
     <Content Include="Custom\Themes\Standard-2015\newsletter.html" />
@@ -760,6 +792,10 @@
     <Content Include="admin\themes\standard\scss\rtl\_rtl.tables.scss" />
     <Content Include="admin\themes\standard\scss\styles.scss" />
     <Content Include="Custom\Widgets\CategoryList\edit.cshtml" />
+    <Content Include="Custom\Themes\SchoDotCom\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Custom\Themes\SchoDotCom\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Custom\Themes\SchoDotCom\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Custom\Themes\SchoDotCom\site.master" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -2145,6 +2181,13 @@
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\Themes\SchoDotCom\site.master.cs">
+      <DependentUpon>site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Custom\Themes\SchoDotCom\site.master.designer.cs">
+      <DependentUpon>site.master</DependentUpon>
     </Compile>
     <Compile Include="Custom\Themes\Standard-2015\site.master.cs">
       <DependentUpon>site.master</DependentUpon>
