@@ -1,6 +1,7 @@
 ﻿<footer class="navbar-fixed-bottom navbar-default container">
     <p class="pull-right">
         @Html.ActionLink("About", "About", "Home") |
+        <a href="/blog">Blog</a> |
         @Html.ActionLink("Resume", "Resume", "Home") |
         @Html.ActionLink("Contact", "Index", "Contact")
         @if (User.IsInRole("admin"))
