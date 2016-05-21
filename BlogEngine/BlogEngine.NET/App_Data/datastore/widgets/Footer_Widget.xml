@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widgets>
+  <widget id="6b4d02cc-1da1-4bf5-b6aa-2c8fea4d1e9e" title="Administration" showTitle="True">Administration</widget>
+  <widget id="cfccbdd7-3565-48be-b571-07b703a64085" title="TagCloud" showTitle="True">TagCloud</widget>
+  <widget id="4b7cb5e1-b090-4779-b7bc-24898a269477" title="Comment List" showTitle="True">CommentList</widget>
+  <widget id="5aa1893f-aca6-4879-ac69-a579ec1b8384" title="Newsletter" showTitle="True">Newsletter</widget>
+</widgets>
