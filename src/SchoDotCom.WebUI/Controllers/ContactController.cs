@@ -23,13 +23,13 @@ namespace SchoDotCom.WebUI.Controllers
         [Route("contact")]
         public ActionResult Index()
         {
-            var viewModel = new ContactViewModel();
+            var viewModel = new ContactCreateViewModel();
             return View(viewModel);
         }
         
         [HttpPost]
         [Route("contact")]
-        public ActionResult Index(ContactViewModel contact)
+        public ActionResult Index(ContactCreateViewModel contact)
         {
             if (ModelState.IsValid)
             {

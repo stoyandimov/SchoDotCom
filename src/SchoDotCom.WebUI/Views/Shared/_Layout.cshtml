@@ -10,12 +10,11 @@
     @Html.Partial("_ApplicationInsights")
     @Html.Partial("_GoogleAnalytics")
 </head>
-<body>
+<body id="body@(ViewBag.Title)">
     @Html.Partial("_MainMenu")
-    <header style="height:150px"></header>
+    <header></header>
     <main class="container">
         <div id="page@(ViewBag.Title)">
-            <h2 class="heading-title">@ViewBag.Title</h2>
             @RenderBody()
         </div>
     </main>

@@ -276,11 +276,13 @@
     <Compile Include="Models\SendGridEmailService.cs" />
     <Compile Include="Models\SmsService.cs" />
     <Compile Include="ViewModels\Account\AccountViewModels.cs" />
+    <Compile Include="ViewModels\Contact\ContactDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Home\ResumeViewModel.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="ViewModels\Manage\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Contact\ContactViewModel.cs" />
+    <Compile Include="ViewModels\Contact\ContactCreateViewModel.cs" />
     <Compile Include="ViewModels\Home\AboutViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

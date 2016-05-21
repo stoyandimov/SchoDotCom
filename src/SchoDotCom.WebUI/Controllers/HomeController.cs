@@ -22,7 +22,8 @@ namespace SchoDotCom.WebUI.Controllers
         [Route("resume")]
         public ActionResult Resume()
         {
-            return View();
+            var viewModel = new ResumeViewModel();
+            return View(viewModel);
         }
     }
 }
