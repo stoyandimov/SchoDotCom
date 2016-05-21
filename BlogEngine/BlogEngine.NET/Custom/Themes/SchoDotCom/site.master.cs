@@ -1,6 +1,7 @@
 ﻿using App_Code.Controls;
 using BlogEngine.Core;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web.UI;
 
@@ -9,6 +10,8 @@ public partial class SchoDotComMaster : System.Web.UI.MasterPage
     private static Regex reg = new Regex(@"(?<=[^])\t{2,}|(?<=[>])\s{2,}(?=[<])|(?<=[>])\s{2,11}(?=[<])|(?=[\n])\s{2,}");
 
     protected static string ShRoot = Utils.ApplicationRelativeWebRoot + "scripts/syntaxhighlighter/";
+
+    protected List<string> tags;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -35,5 +38,8 @@ public partial class SchoDotComMaster : System.Web.UI.MasterPage
             aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx";
             aLogin.InnerText = Resources.labels.login;
         }
+
+        var cloud = new BlogEngine.Core.Data.Services.TagCloud();
+        tags = cloud.Links();
     }
 }

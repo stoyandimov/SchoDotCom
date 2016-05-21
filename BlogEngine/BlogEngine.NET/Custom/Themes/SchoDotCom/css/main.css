@@ -38,6 +38,7 @@ table { width: 100%; }
 .header * { color: #fff; }
 .header .img-thumbnail { background-color: #e1f5fe; border: 0; box-shadow: 0 0 5px 0px #555; }
 .header .avatar {
+    margin-top:6px;
     float: left;
     margin-right: 30px;
     -ms-transform: rotate(27deg); /* IE 9 */

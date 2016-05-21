@@ -565,6 +565,7 @@
     <Content Include="Custom\Themes\SchoDotCom\images\sarrow.png" />
     <Content Include="Custom\Themes\SchoDotCom\images\twitter.png" />
     <Content Include="Custom\Themes\SchoDotCom\js\bootstrap.min.js" />
+    <Content Include="Custom\Themes\SchoDotCom\js\tagcanvas-2.9.min.js" />
     <Content Include="Custom\Themes\SchoDotCom\newsletter.html" />
     <Content Include="Custom\Themes\SchoDotCom\PostNavigation.ascx" />
     <Content Include="Custom\Themes\SchoDotCom\PostView.ascx" />
