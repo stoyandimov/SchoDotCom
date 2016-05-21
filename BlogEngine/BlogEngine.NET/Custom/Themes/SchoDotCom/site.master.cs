@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web.UI;
 
-public partial class SchoDotComMaster : System.Web.UI.MasterPage
+public partial class SchoDotComSiteMaster : System.Web.UI.MasterPage
 {
     private static Regex reg = new Regex(@"(?<=[^])\t{2,}|(?<=[>])\s{2,}(?=[<])|(?<=[>])\s{2,11}(?=[<])|(?=[\n])\s{2,}");
 

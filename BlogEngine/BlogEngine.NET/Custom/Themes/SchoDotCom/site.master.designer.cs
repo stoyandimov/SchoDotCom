@@ -9,7 +9,7 @@
 
 
 
-public partial class SchoDotComMaster {
+public partial class SchoDotComSiteMaster {
     
     /// <summary>
     /// HeadContent control.

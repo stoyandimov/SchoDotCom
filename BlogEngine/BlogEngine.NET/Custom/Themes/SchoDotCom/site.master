@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="SchoDotComMaster" Codebehind="site.master.cs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="SchoDotComSiteMaster" Codebehind="site.master.cs" %>
 <%@ Import Namespace="BlogEngine.Core" %>
 <%@ Import Namespace="System.Linq" %>
 
@@ -57,27 +57,22 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/about">About</a></li>
                             <li><a href="<%=Utils.AbsoluteWebRoot %>">Blog</a></li>
-                            <li><a href="/resume">Resume</a></li>
-                            <li><a href="/contact">Contact</a></li>
                             <%--<li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>--%>
-                            <%--<li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>--%>
-                            <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder))
-                                { %>
+                            <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder)) { %>
                             <li class="page-menu clearfix">
                                 <a href="<%=parentPage.RelativeLink %>" class="pull-left dropdown-m"><%=parentPage.Title%> </a>
-                                <%if (parentPage.HasChildPages)
-                                    { %>
+                                <%if (parentPage.HasChildPages) { %>
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle pull-left"><span class="caret"></span></a>
                                 <ul class="dropdown-menu dropdown-menu-u">
-                                    <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished))
-                                        { %>
+                                    <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished)) { %>
                                     <li><a href="<%=childPage.RelativeLink %>"><%=childPage.Title %></a></li>
                                     <% } %>
                                 </ul>
-                                <% } %></li>
+                                <% } %>
+                            </li>
                             <% } %>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
                         </ul>
                         <div class="pull-right social-media-container">
                             <a target="_blank" href="https://twitter.com/StoyanDimov">

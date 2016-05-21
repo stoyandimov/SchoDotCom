@@ -58,12 +58,24 @@ p, div { font-family: 'Segoe UI'; font-weight: 200; font-size: 106%; }
     width:140px;
     height:140px;
 }
+.widget .avatar {
+    margin-top: 6px;
+    margin-right: 30px;
+    -ms-transform: rotate(27deg); /* IE 9 */
+    -webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
+    transform: rotate(27deg);
+    background-size: cover;
+    background-position: 6px 0;
+    background-image: url('../images/avatar-400.jpg');
+    width: 160px;
+    height: 160px;
+}
 
 /*[02.well-global]*/
 .well-global,#trackbacks { background-color: #ffffff; padding: 4%; margin-bottom: 20px; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
 .well-global .well-global-title { margin: 0; margin-bottom: 20px; border-bottom: 1px solid #eeeeee; padding-bottom: 20px; }
 .well-global h3 { margin: 0; font-size: 28px; }
-.page-global { background-color: #ffffff !important; padding: 4% !important; margin-bottom: 20px !important; border-radius: 6px !important; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.page-global { background-color: #ffffff !important; padding: 4% !important; margin-bottom: 20px !important; border-radius: 2px !important; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
 .page-global .page-global-title { border-bottom: 1px solid #eee !important; margin: 0 0 20px 0 !important; padding-bottom: 15px !important; font-weight: bold !important; font-size: 26px !important; }
 
 /*[03.post]*/
@@ -274,3 +286,37 @@ p, div { font-family: 'Segoe UI'; font-weight: 200; font-size: 106%; }
 /*[31.post-list]*/
 .postList img { margin-right: 10px; float: left; }
 .postList a { display: inline-block; clear: both; }
+
+
+/**
+ * PAGE About
+ */
+
+.flag-image {
+    width: 17px;
+    height: 15px;
+    opacity: 0.5
+}
+
+/**
+ * PAGE Contact
+ */
+#pageContact {
+    border-bottom: 1px solid #eee;
+}
+#pageContact table td {
+    margin-top:22px;
+    padding: 12px 10px;
+}
+#pageContact table td img {
+    opacity: 0.7;
+}
+#pageContact table td img:hover {
+    opacity: 0.9;
+}
+#pageContact #Message {
+    background-color: transparent;
+}
+#bodyContact header {
+    height: 75px;
+}

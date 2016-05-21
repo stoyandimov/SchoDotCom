@@ -26,7 +26,7 @@
   <showincludecommentsoption>False</showincludecommentsoption>
   <createblogonselfregistration>False</createblogonselfregistration>
   <enablewebsiteincomments>False</enablewebsiteincomments>
-  <enablecontactattachments>True</enablecontactattachments>
+  <enablecontactattachments>False</enablecontactattachments>
   <blogrollmaxlength>23</blogrollmaxlength>
   <language>en-US</language>
   <smtpserver>mail.example.com</smtpserver>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page>
+  <title>About</title>
+  <description>&amp;lt;div class="row"&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;div class="col-md-7"&amp;gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</description>
+  <content>&lt;table class="table"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Born in&lt;/td&gt;
+&lt;td&gt;Dobrich, Bulgaria &lt;img class="flag-image" src="/Custom/Themes/SchoDotCom/images/flag-bg.png" alt="" /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Living in&lt;/td&gt;
+&lt;td&gt;Haarlem, The Netherlands&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Age&lt;/td&gt;
+&lt;td&gt;203 in dog years&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Occupation&lt;/td&gt;
+&lt;td&gt;Software developer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class="small" colspan="2"&gt;When not developing I enjoy hanging out with friends, playing basketball, League of Legends, being at the beach or hiking/skiing in the mountains.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
+  <keywords />
+  <slug>about</slug>
+  <parent>00000000-0000-0000-0000-000000000000</parent>
+  <isfrontpage>False</isfrontpage>
+  <showinlist>True</showinlist>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <sortorder>0</sortorder>
+  <datecreated>2016-05-21 14:29:00</datecreated>
+  <datemodified>2016-05-21 16:26:28</datemodified>
+</page>
