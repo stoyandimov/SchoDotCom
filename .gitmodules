@@ -1,4 +1,0 @@
-[submodule "src/BlogEngine.NET"]
-	path = src/BlogEngine.NET
-	url = https://github.com/stoyandimov/BlogEngine.NET
-	branch = SchoDotCom
