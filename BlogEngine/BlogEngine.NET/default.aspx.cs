@@ -50,11 +50,11 @@ public partial class _default : BlogEngine.Core.Web.Controls.BlogBasePage
         }
         else
         {
-            if (!BlogSettings.Instance.UseBlogNameInPageTitles)
-                Page.Title = BlogSettings.Instance.Name + " | ";
-
             if (!string.IsNullOrEmpty(BlogSettings.Instance.Description))
-                Page.Title += Server.HtmlEncode(BlogSettings.Instance.Description);
+                Page.Title += Server.HtmlEncode(BlogSettings.Instance.Description) + " | ";
+
+            if (!BlogSettings.Instance.UseBlogNameInPageTitles)
+                Page.Title = BlogSettings.Instance.Name;
 
             AddMetaDescription(BlogSettings.Instance.Description);
         }

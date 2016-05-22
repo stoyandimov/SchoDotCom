@@ -53,7 +53,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="<%=Utils.AbsoluteWebRoot %>" class="navbar-brand">stoyandimov.com</a>
+                        <a href="<%=Utils.AbsoluteWebRoot %>" class="navbar-brand">
+                            stoyandimov.com
+                        </a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -96,9 +98,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <div class="avatar img-circle img-thumbnail"></div>
+                        <%--<div class="avatar img-circle img-thumbnail"></div>--%>
                         <h1>Stoyan Dimov</h1>
-                        <h5>and random thoughts on web development</h5>
+                        <h5>Random thoughts on web development</h5>
                     </div>
                     <div class="col-md-4">
                         <div id="tagCanvasContainer">
