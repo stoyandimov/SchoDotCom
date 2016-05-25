@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SerializableStringDictionary>
   <SerializableStringDictionary>
-    <DictionaryEntry Key="content" Value="&lt;links&gt;&lt;link id=&quot;4342f253-51ff-4733-8f2b-8eb25bcc864f&quot; url=&quot;https://twitter.com/StoyanDimov&quot; target=&quot;on&quot;&gt;Twitter @StoyanDimov&lt;/link&gt;&lt;link id=&quot;fd5fa3bb-a868-4a33-a035-8942493f725f&quot; url=&quot;https://linkedin.com/in/stoyandimov&quot; target=&quot;on&quot;&gt;Linked In&lt;/link&gt;&lt;link id=&quot;048765ec-4d3a-488d-9afb-558fdf50bc7f&quot; url=&quot;https://github.com/stoyandimov&quot; target=&quot;on&quot;&gt;GitHub&lt;/link&gt;&lt;link id=&quot;25c60c10-d9a1-4de4-b999-8d60e11d24f5&quot; url=&quot;http://www.mycertprofile.com/Profile/4978868885&quot; target=&quot;on&quot;&gt;Microsoft Certification&lt;/link&gt;&lt;/links&gt;" />
+    <DictionaryEntry Key="content" Value="&lt;links&gt;&lt;link id=&quot;4342f253-51ff-4733-8f2b-8eb25bcc864f&quot; url=&quot;https://twitter.com/StoyanDimov&quot; target=&quot;on&quot;&gt;Twitter @StoyanDimov&lt;/link&gt;&lt;link id=&quot;fd5fa3bb-a868-4a33-a035-8942493f725f&quot; url=&quot;https://linkedin.com/in/stoyandimov&quot; target=&quot;on&quot;&gt;Linked In&lt;/link&gt;&lt;link id=&quot;048765ec-4d3a-488d-9afb-558fdf50bc7f&quot; url=&quot;https://github.com/stoyandimov&quot; target=&quot;on&quot;&gt;GitHub&lt;/link&gt;&lt;link id=&quot;25c60c10-d9a1-4de4-b999-8d60e11d24f5&quot; url=&quot;http://www.mycertprofile.com/Profile/4978868885&quot; target=&quot;on&quot;&gt;Microsoft Certification Profile&lt;/link&gt;&lt;/links&gt;" />
     <DictionaryEntry Key="numberoflinks" Value="10" />
   </SerializableStringDictionary>
 </SerializableStringDictionary>
