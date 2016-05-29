@@ -21,6 +21,15 @@ public partial class SchoDotComSiteMaster {
     protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
     
     /// <summary>
+    /// aLogin control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlAnchor aLogin;
+    
+    /// <summary>
     /// SearchOnSearch1 control.
     /// </summary>
     /// <remarks>
@@ -37,31 +46,4 @@ public partial class SchoDotComSiteMaster {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.ContentPlaceHolder cphBody;
-    
-    /// <summary>
-    /// WidgetZone1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::App_Code.Controls.WidgetZone WidgetZone1;
-    
-    /// <summary>
-    /// WidgetZone2 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::App_Code.Controls.WidgetZone WidgetZone2;
-    
-    /// <summary>
-    /// aLogin control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlAnchor aLogin;
 }
