@@ -1,25 +1,15 @@
-﻿.avatar {
-    max-width: 200px;
-    margin: auto;
-    float: none;
-    display: block;
-    border: 1px #ccc dashed;
-    border-radius: 50%;
-    background-position:left 50px;
-    transform: rotate(27deg);
-}
-.container-left {
-    color: #03a9f4;
-    padding-left:50px;
-    padding-right:10px;
-    border-right: 1px #ccc solid;
-}
-.push-down{
-    margin-top: 5%;
-}
-.main-content {
-    padding-left:60px;
-}
+﻿.avatar { max-width: 200px; margin: auto; float: none; display: block; border: 1px #ccc dashed; border-radius: 50%; background-position:left 50px; transform: rotate(27deg); }
+.container-left { color: #03a9f4; border-right: 1px #ccc solid; padding: 29px 0;}
+.push-down { margin-top: 5%; }
+.main-content { padding-left:60px; padding-right: 20px; }
+h1, h2, h3, h4, h5, h6, p, div { font-family: 'Segoe UI'; font-weight: 200; }
+p, div { font-size: 105% }
+a { color: #444; }
+a:hover { color: #000; text-decoration: none; }
 
-h1, h2, h3, h4, h5, h6 { font-weight:200; font-family: 'Segoe UI'; }
-p, div { font-family: 'Segoe UI'; font-weight: 200; font-size: 106%; }
+/* posts */
+.post { margin-bottom: 100px; }
+.post .post-info i { color: #ccc; margin-right:4px; font-size:80%; }
+
+/* about */
+.flag-image { width: 17px; height: 15px; opacity: 0.5 }
