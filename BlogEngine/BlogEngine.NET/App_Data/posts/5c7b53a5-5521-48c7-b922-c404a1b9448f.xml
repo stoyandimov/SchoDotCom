@@ -7,7 +7,7 @@
 &lt;p&gt;&lt;img src="/image.axd?picture=/350x150.png" alt="" /&gt;&lt;/p&gt;
 &lt;p&gt;Post List widget should find first image in the post body and display it in the post list when this option selected in the widget admin.&lt;/p&gt;</content>
   <ispublished>True</ispublished>
-  <isdeleted>False</isdeleted>
+  <isdeleted>True</isdeleted>
   <iscommentsenabled>True</iscommentsenabled>
   <pubDate>2016-02-06 13:54:00</pubDate>
   <lastModified>2016-02-06 09:20:54</lastModified>
