@@ -19,6 +19,7 @@
     <link rel="icon" href="images/favicon.png" />
     <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
     <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
     <script>
         // Application Insights
         var appInsights = window.appInsights || function (config) {
@@ -39,76 +40,120 @@
         ga('create', 'UA-77508059-1', 'auto');
         ga('send', 'pageview');
     </script>
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body class="<%=Resources.labels.LangDirection %>">
     <form runat="Server">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="push-down"></div>
-                <div class="col-lg-3 col-md-5 col-sm-5">
-                    <div class="container-left">
-                        <header>
-                            <img class="avatar" src="/Custom/Themes/SchoDotCom/images/avatar-400-2.jpg" />
-                            <br />
-                            <h3 class="text-center">Stoyan Dimov</h3>
-                            <h4 class="text-center">Web Developer</h4>
-                            <br />
-                        </header>
-                        <nav>
-                            <ul class="nav text-center">
-                                <li><a href="<%=Utils.AbsoluteWebRoot %>">Blog</a></li>
-                                <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder)) { %>
-                                <li><a href="<%=parentPage.RelativeLink %>"><%=parentPage.Title%></a></li>
+        <nav class="nav-container">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="<%=Utils.AbsoluteWebRoot %>" class="navbar-brand">
+                            stoyandimov.com
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>">Blog</a></li>
+                            <%--<li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>--%>
+                            <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder)) { %>
+                            <li class="page-menu clearfix">
+                                <a href="<%=parentPage.RelativeLink %>" class="pull-left dropdown-m"><%=parentPage.Title%> </a>
+                                <%if (parentPage.HasChildPages) { %>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle pull-left"><span class="caret"></span></a>
+                                <ul class="dropdown-menu dropdown-menu-u">
+                                    <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished)) { %>
+                                    <li><a href="<%=childPage.RelativeLink %>"><%=childPage.Title %></a></li>
+                                    <% } %>
+                                </ul>
                                 <% } %>
-                                <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
-                                <li><a runat="server" id="aLogin"></a></li>
-                            </ul>
-                            <div class="pull-right social-media-container hidden">
-                                <a target="_blank" href="https://twitter.com/StoyanDimov">
-                                    <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/twitter-24.ico" runat="server" />
-                                </a>
-                                <a target="_blank" href="https://linkedin.com/in/stoyandimov">
-                                    <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/linkedin-24.ico" runat="server" />
-                                </a>
-                                <a target="_blank" href="https://github.com/stoyandimov">
-                                    <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/github-24.ico" runat="server" />
-                                </a>
-                                <a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
-                                    <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/windows-24.ico" runat="server" />
-                                </a>
-                            </div>
-                        </nav>
-                        <aside class="hidden">
-                            <h1>Tag cloud</h1>
-                            <ul id="tags" class="hidden">
-                                <%foreach (string tag in tags){%>
-                                    <li><%=tag%></li>
-                                <%}%>
-                            </ul>
-                        </aside>
+                            </li>
+                            <% } %>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+                        </ul>
+                        <div class="pull-right social-media-container">
+                            <a target="_blank" href="https://twitter.com/StoyanDimov">
+                                <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/twitter-24.ico" runat="server" />
+                            </a>
+                            <a target="_blank" href="https://linkedin.com/in/stoyandimov">
+                                <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/linkedin-24.ico" runat="server" />
+                            </a>
+                            <a target="_blank" href="https://github.com/stoyandimov">
+                                <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/github-24.ico" runat="server" />
+                            </a>
+                            <a target="_blank" href="http://www.mycertprofile.com/Profile/4978868885">
+                                <img src="~/Custom/Themes/SchoDotCom/images/social-link-icons/windows-24.ico" runat="server" />
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-7">
-                    <main>
-                        <section>
-                            <div class="main-content">
-                                <blog:SearchOnSearch ID="SearchOnSearch1" runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
-                                <asp:ContentPlaceHolder ID="cphBody" runat="server" />
-                            </div>
-                        </section>
-                    </main>
-                </div>
-                <div class="col-lg-3 col-md-1 hidden-sm"></div>
             </div>
+        </nav>
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <%--<div class="avatar img-circle img-thumbnail"></div>--%>
+                        <h1>Stoyan Dimov</h1>
+                        <h5>Random thoughts on web development</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="tagCanvasContainer">
+                            <canvas width="290" height="150" id="tagCanvas" class="pull-right">
+                                <p>Anything in here will be replaced on browsers that support the canvas element</p>
+                            </canvas>
+                        </div>
+                        <ul id="tags" class="hidden">
+                            <%foreach (string tag in tags){%>
+                                <li><%=tag%></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <footer>
-                        <p class="text-center">Copyright 2016 - Stoyan Dimov</p>
-                    </footer>
-                </div>
+                <section class="col-md-8 content-wrapper">
+                    <blog:SearchOnSearch ID="SearchOnSearch1" runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+                </section>
+                <aside class="col-md-4 sidebar-wrapper">
+                    <blog:WidgetZone ID="WidgetZone1" runat="server" ZoneName="be_WIDGET_ZONE" />
+                </aside>
             </div>
-        </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="widgets-footer clearfix">
+                    <blog:WidgetZone ID="WidgetZone2" runat="server" ZoneName="Footer_Widget" />
+                </div>
+                <ul class="pull-right list-inline">
+                   <li><a href="<%=Utils.AbsoluteWebRoot %>">Blog</a></li>
+                    <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder)) { %>
+                    <li class="page-menu clearfix">
+                        <a href="<%=parentPage.RelativeLink %>" class="dropdown-m"><%=parentPage.Title%> </a>
+                        <%if (parentPage.HasChildPages) { %>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle pull-left"><span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-u">
+                            <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished)) { %>
+                            <li><a href="<%=childPage.RelativeLink %>"><%=childPage.Title %></a></li>
+                            <% } %>
+                        </ul>
+                        <% } %>
+                    </li>
+                    <% } %>
+                    <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+                    <li><a runat="server" id="aLogin"></a></li>
+                </ul>
+                <p><a href="/">&copy; Copyright <%=DateTime.Now.Year %>, Stoyan Dimov</a></p>
+            </div>
+        </footer>
         <!-- le scripts -->
         <script type="text/javascript" src="<%# ShRoot %>scripts/XRegExp.js"></script>
         <script type="text/javascript" src="<%# ShRoot %>scripts/shCore.js"></script>
@@ -116,6 +161,27 @@
         <script type="text/javascript" src="<%# ShRoot %>shActivator.js"></script>
         <script src="<%=(Utils.AbsoluteWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/bootstrap.min.js")%>" type="text/javascript"></script>
         <script src="<%=(Utils.AbsoluteWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/tagcanvas-2.9.min.js")%>" type="text/javascript"></script>
+        <script>
+            // Tag cloud
+            $(function () {
+                try {
+                    TagCanvas.Start('tagCanvas', 'tags', {
+                        initial: [-0.1,-0.05],
+                        textColour: '#fff',
+                        textFont: 'Segoe UI',
+                        outlineColour: '#fff',
+                        outlineMethod: 'none',
+                        reverse: true,
+                        depth: 0.8,
+                        maxSpeed: 0.05
+                    });
+                    // more options at http://www.goat1000.com/tagcanvas-options.php
+                } catch (e) {
+                    // something went wrong, hide the canvas container
+                    document.getElementById('tagCanvasContainer').style.display = 'none';
+                }
+            });
+        </script>
     </form>
 </body>
 </html>

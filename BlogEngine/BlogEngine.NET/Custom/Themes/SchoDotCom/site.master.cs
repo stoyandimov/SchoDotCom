@@ -37,7 +37,6 @@ public partial class SchoDotComSiteMaster : System.Web.UI.MasterPage
         {
             aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx";
             aLogin.InnerText = Resources.labels.login;
-            aLogin.Visible = false;
         }
 
         var cloud = new BlogEngine.Core.Data.Services.TagCloud();
