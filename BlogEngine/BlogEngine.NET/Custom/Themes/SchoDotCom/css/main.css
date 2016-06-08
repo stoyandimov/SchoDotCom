@@ -30,12 +30,14 @@ table { width: 100%; }
 .text-uppercase { text-transform: uppercase; }
 h1, h2, h3, h4, h5, h6 { font-weight:200; font-family: 'Segoe UI'; }
 p, div { font-family: 'Segoe UI'; font-weight: 200; font-size: 106%; }
+.avatar { -ms-transform: rotate(27deg); /* IE 9 */ -webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */ transform: rotate(27deg); background-size: cover; background-position: 1px 0; background-image: url('../images/avatar-400.jpg'); }
 @media (min-width: 1200px) {
     .container { max-width: 970px; }
 }
 
 /*[00.navbar]*/
 .navbar { margin-bottom: 0px; }
+.navbar .avatar { width:55px; height: 55px; margin-top: -16px }
 .nav-container .social-media-container { padding: 15px 0; opacity: 0.7; }
 .nav-container .social-media-container a { text-decoration:none; }
 .nav-container .social-media-container img { margin-right:10px; padding: 4px; height: 24px; opacity:0.8; }
@@ -45,30 +47,6 @@ p, div { font-family: 'Segoe UI'; font-weight: 200; font-size: 106%; }
 .header { background:  url('../images/bg-noise-transparent.png') #03a9f4; padding: 15px 0; box-shadow: 0 0 2px #555; margin-bottom: 20px;}
 .header * { color: #fff; }
 .header .img-thumbnail { background-color: #e1f5fe; border: 0; box-shadow: 0 0 5px 0px #555; }
-/*.header .avatar {
-    margin-top:6px;
-    float: left;
-    margin-right: 30px;
-    -ms-transform: rotate(27deg);
-    -webkit-transform: rotate(27deg); 
-    transform: rotate(27deg);
-    background-size:cover;
-    background-position:6px 0;
-    background-image: url('../images/avatar-400.jpg');
-    width:140px;
-    height:140px;
-}*/
-.widget .avatar {
-    -ms-transform: rotate(27deg); /* IE 9 */
-    -webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
-    transform: rotate(27deg);
-    background-size: cover;
-    background-position: 6px 0;
-    background-image: url('../images/avatar-400.jpg');
-    width: 160px;
-    height: 160px;
-    
-}
 
 /*[02.well-global]*/
 .well-global,#trackbacks { background-color: #ffffff; padding: 4%; margin-bottom: 20px; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
@@ -147,6 +125,9 @@ p, div { font-family: 'Segoe UI'; font-weight: 200; font-size: 106%; }
 .widget .post-item-list h5 { font-size: 15px; }
 .widget .post-item-list h5 { font-size: 15px; }
 .widget #categorylist a { font-size: 15px; }
+
+/*[09.01.custom widget content]*/
+.widget .avatar { width: 160px; height: 160px; display:block; margin: 0 auto; }
 
 /*[10.administration]*/
 .administration .widget-header { margin-bottom: 0 !important; }
@@ -288,8 +269,4 @@ p, div { font-family: 'Segoe UI'; font-weight: 200; font-size: 106%; }
 
 
 /* PAGE About */
-.flag-image {
-    width: 17px;
-    height: 15px;
-    opacity: 0.5
-}
+.flag-image { width: 17px; height: 15px; opacity: 0.5 }

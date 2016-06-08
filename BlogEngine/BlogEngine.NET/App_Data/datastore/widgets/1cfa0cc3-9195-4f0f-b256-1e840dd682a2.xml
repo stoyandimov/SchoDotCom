@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SerializableStringDictionary>
   <SerializableStringDictionary>
-    <DictionaryEntry Key="content" Value="&amp;lt;div class=&amp;quot;avatar img-circle img-thumbnail&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/div&amp;gt;" />
+    <DictionaryEntry Key="content" Value="&amp;lt;div class=&amp;quot;avatar img-circle img-thumbnail&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/div&amp;gt;&#xD;&#xA;&amp;lt;hr /&amp;gt;&#xD;&#xA;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Stoyan Dimov&amp;lt;/strong&amp;gt; is a Microsoft certified solutions developer of web applications. Currently at Codelogic, he is developing web applications and connects software using web API and web services.&amp;lt;/p&amp;gt;" />
   </SerializableStringDictionary>
 </SerializableStringDictionary>
