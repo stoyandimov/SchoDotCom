@@ -61,13 +61,16 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="<%=Utils.AbsoluteWebRoot %>">Blog</a></li>
                             <%--<li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>--%>
-                            <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder)) { %>
+                            <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder))
+                                { %>
                             <li class="page-menu clearfix">
                                 <a href="<%=parentPage.RelativeLink %>" class="pull-left dropdown-m"><%=parentPage.Title%> </a>
-                                <%if (parentPage.HasChildPages) { %>
+                                <%if (parentPage.HasChildPages)
+                                    { %>
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle pull-left"><span class="caret"></span></a>
                                 <ul class="dropdown-menu dropdown-menu-u">
-                                    <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished)) { %>
+                                    <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished))
+                                        { %>
                                     <li><a href="<%=childPage.RelativeLink %>"><%=childPage.Title %></a></li>
                                     <% } %>
                                 </ul>
@@ -109,7 +112,8 @@
                             </canvas>
                         </div>
                         <ul id="tags" class="hidden">
-                            <%foreach (string tag in tags){%>
+                            <%foreach (string tag in tags)
+                                {%>
                                 <li><%=tag%></li>
                             <%}%>
                         </ul>
@@ -135,13 +139,16 @@
                 </div>
                 <ul class="pull-right list-inline">
                    <li><a href="<%=Utils.AbsoluteWebRoot %>">Blog</a></li>
-                    <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder)) { %>
+                    <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder))
+                        { %>
                     <li class="page-menu clearfix">
                         <a href="<%=parentPage.RelativeLink %>" class="dropdown-m"><%=parentPage.Title%> </a>
-                        <%if (parentPage.HasChildPages) { %>
+                        <%if (parentPage.HasChildPages)
+                            { %>
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle pull-left"><span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-u">
-                            <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished)) { %>
+                            <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished))
+                                { %>
                             <li><a href="<%=childPage.RelativeLink %>"><%=childPage.Title %></a></li>
                             <% } %>
                         </ul>
@@ -161,27 +168,9 @@
         <script type="text/javascript" src="<%# ShRoot %>shActivator.js"></script>
         <script src="<%=(Utils.AbsoluteWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/bootstrap.min.js")%>" type="text/javascript"></script>
         <script src="<%=(Utils.AbsoluteWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/tagcanvas-2.9.min.js")%>" type="text/javascript"></script>
-        <script>
-            // Tag cloud
-            $(function () {
-                try {
-                    TagCanvas.Start('tagCanvas', 'tags', {
-                        initial: [-0.1,-0.05],
-                        textColour: '#fff',
-                        textFont: 'Segoe UI',
-                        outlineColour: '#fff',
-                        outlineMethod: 'none',
-                        reverse: true,
-                        depth: 0.8,
-                        maxSpeed: 0.05
-                    });
-                    // more options at http://www.goat1000.com/tagcanvas-options.php
-                } catch (e) {
-                    // something went wrong, hide the canvas container
-                    document.getElementById('tagCanvasContainer').style.display = 'none';
-                }
-            });
-        </script>
+        <%if (tags.Count >= 3) { %>
+        <script src="<%=(Utils.AbsoluteWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/custom.js")%>" type="text/javascript"></script>
+        <% } %>
     </form>
 </body>
 </html>
