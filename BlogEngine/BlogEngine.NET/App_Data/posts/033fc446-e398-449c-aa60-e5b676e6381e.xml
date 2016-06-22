@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>Admin</author>
+  <title>Working with multiple web.config files</title>
+  <description>Content</description>
+  <content>&lt;p&gt;Content&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2016-06-21 23:22:00</pubDate>
+  <lastModified>2016-06-21 21:22:47</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>working-with-multiple-web-config-files</slug>
+  <tags>
+    <tag>ASP.NET</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>9d239ff9-609e-4656-9d38-ac95b26b5f8c</category>
+  </categories>
+  <notifications />
+</post>
