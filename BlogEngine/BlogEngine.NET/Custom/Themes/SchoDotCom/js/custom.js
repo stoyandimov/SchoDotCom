@@ -1,5 +1,6 @@
-﻿// Tag cloud
-$(function () {
+﻿$(function () {
+    // Tag cloud
+    if (TagCanvas == undefined) return;
     try {
         TagCanvas.Start('tagCanvas', 'tags', {
             initial: [-0.1, -0.05],
@@ -16,4 +17,10 @@ $(function () {
         // something went wrong, hide the canvas container
         document.getElementById('tagCanvasContainer').style.display = 'none';
     }
+});
+
+$(function () {
+    $("pre.hljs").each(function (i, block) {
+        hljs.highlightBlock(block);
+    });
 });

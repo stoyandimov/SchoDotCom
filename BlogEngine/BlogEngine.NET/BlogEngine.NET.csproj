@@ -553,6 +553,7 @@
     <Content Include="Custom\Themes\SchoDotCom\CommentView.ascx" />
     <Content Include="Custom\Themes\SchoDotCom\css\bootstrap.min.css" />
     <Content Include="Custom\Themes\SchoDotCom\css\main.css" />
+    <Content Include="Custom\Themes\SchoDotCom\css\monokai-sublime.highlightjs.css" />
     <Content Include="Custom\Themes\SchoDotCom\css\paper.bootstrap.min.css" />
     <Content Include="Custom\Themes\SchoDotCom\css\responsive.css" />
     <Content Include="Custom\Themes\SchoDotCom\css\rtl.css" />
@@ -568,6 +569,7 @@
     <Content Include="Custom\Themes\SchoDotCom\images\twitter.png" />
     <Content Include="Custom\Themes\SchoDotCom\js\bootstrap.min.js" />
     <Content Include="Custom\Themes\SchoDotCom\js\custom.js" />
+    <Content Include="Custom\Themes\SchoDotCom\js\highlight.js" />
     <Content Include="Custom\Themes\SchoDotCom\js\tagcanvas-2.9.min.js" />
     <Content Include="Custom\Themes\SchoDotCom\newsletter.html" />
     <Content Include="Custom\Themes\SchoDotCom\PostNavigation.ascx" />
