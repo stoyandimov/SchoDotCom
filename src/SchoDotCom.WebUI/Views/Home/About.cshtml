@@ -1,0 +1,38 @@
+﻿@model SchoDotCom.WebUI.ViewModels.Home.AboutViewModel
+@{
+    ViewBag.Title = "About";
+}
+<div class="row">
+    <div class="col-md-7">
+        <div class="panel-body">
+            <h2 class="heading-title">@ViewBag.Title</h2>
+            <table class="table">
+                <tr>
+                    <td>Born in</td>
+                    <td>Dobrich, Bulgaria <img class="flag-image" src="~/images/flag-bg.png" /></td>
+                </tr>
+                <tr>
+                    <td>Living in</td>
+                    <td>Haarlem, The Netherlands</td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>@Model.AgeInDogYears in dog years</td>
+                </tr>
+                <tr>
+                    <td>Occupation</td>
+                    <td>Software developer</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="small">
+                        When not developing I enjoy hanging out with friends, playing basketball,
+                        League of Legends, being at the beach or hiking/skiing in the mountains.
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <img class="avatar-image" alt="Stoyan Dimov" src="~/images/avatar-400.jpg" />
+    </div>
+</div>
