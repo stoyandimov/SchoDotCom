@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.ApplicationInsights.AspNetCore;
 
 namespace SchoDotCom.WebUI
 {
@@ -15,6 +16,10 @@ namespace SchoDotCom.WebUI
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+                builder.AddApplicationInsightsSettings(developerMode: true);
+
             Configuration = builder.Build();
         }
 
@@ -25,6 +30,8 @@ namespace SchoDotCom.WebUI
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddApplicationInsightsTelemetry(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

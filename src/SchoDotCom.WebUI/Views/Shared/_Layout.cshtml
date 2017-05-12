@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap-theme-paper/paper.css" />
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
-    @Html.Partial("_ApplicationInsights")
+    @Html.Raw(JavaScriptSnippet.FullScript)
     @Html.Partial("_GoogleAnalytics")
 </head>
 <body id="body@(ViewBag.Title)">

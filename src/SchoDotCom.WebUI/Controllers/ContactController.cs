@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SchoDotCom.WebUI.ViewModels.Contact;
 
+
 namespace SchoDotCom.WebUI.Controllers
 {
     [AllowAnonymous]
@@ -20,11 +21,11 @@ namespace SchoDotCom.WebUI.Controllers
         [Route("contact")]
         public ActionResult Index(ContactCreateViewModel contact)
         {
+            throw new System.NotImplementedException();
             if (ModelState.IsValid)
             {
                 try
                 {
-                    throw new System.NotImplementedException();
                     //var msg = new MailMessage()
                     //{
                     //    Body = contact.Message,
