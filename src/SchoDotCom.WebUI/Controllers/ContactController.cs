@@ -21,11 +21,11 @@ namespace SchoDotCom.WebUI.Controllers
         [Route("contact")]
         public ActionResult Index(ContactCreateViewModel contact)
         {
-            throw new System.NotImplementedException();
             if (ModelState.IsValid)
             {
                 try
                 {
+                    throw new System.NotImplementedException();
                     //var msg = new MailMessage()
                     //{
                     //    Body = contact.Message,
@@ -37,7 +37,7 @@ namespace SchoDotCom.WebUI.Controllers
                 }
                 catch (System.Exception)
                 {
-                    ModelState.AddModelError("message", "Something went wrong on our side! Sending message failed!");
+                    ModelState.AddModelError("message", "Something went wrong on my side! Sending message failed!");
                 }
             }
 

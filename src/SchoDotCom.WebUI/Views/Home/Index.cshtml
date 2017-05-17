@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<SchoDotCom.WebUI.Models.AppSettings> Settings
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -20,8 +22,14 @@
         <link rel="stylesheet" href="~/lib/bootstrap-theme-paper/paper.css" />
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
-    @Html.Raw(JavaScriptSnippet.FullScript)
-    @Html.Partial("_GoogleAnalytics")
+    @if (Settings.Value.RenderAppInsightsSnippet)
+    {
+        @Html.Raw(JavaScriptSnippet.FullScript)
+    }
+    @if (Settings.Value.RenderGoogleAnalyticsSnippet)
+    {
+        @Html.Partial("_GoogleAnalytics")
+    }
 </head>
 <body id="homeBackground">
     <div id="pageHome">
