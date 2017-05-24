@@ -15,6 +15,6 @@ namespace SchoDotCom.WebUI.ViewModels.Contact
         [StringLength(int.MaxValue, MinimumLength = 140, ErrorMessage = "The field Message must be with a minimum length of 140.")]
         public string Message { get; set; }
 
-        public bool IsSent { get; set; }
+        public bool IsSent { get; set; } = false;
     }
 }

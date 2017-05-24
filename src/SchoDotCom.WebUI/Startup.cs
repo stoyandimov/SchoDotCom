@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SchoDotCom.WebUI.Models;
 
 namespace SchoDotCom.WebUI
 {
@@ -34,8 +35,12 @@ namespace SchoDotCom.WebUI
             // Add App inghts (Monitor from Azure)
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            services.Configure<SmtpSettings>(Configuration.GetSection("Smtp"));
+
             // Add custom settings that don't belong to other secions
-            services.Configure<Models.AppSettings>(Configuration.GetSection("SchoDotCom"));
+            services.Configure<AppSettings>(Configuration.GetSection("SchoDotCom"));
+
+            services.AddTransient<EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

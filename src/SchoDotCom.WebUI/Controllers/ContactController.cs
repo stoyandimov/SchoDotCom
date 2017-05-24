@@ -1,13 +1,26 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using SchoDotCom.WebUI.Models;
 using SchoDotCom.WebUI.ViewModels.Contact;
-
+using System.Threading.Tasks;
 
 namespace SchoDotCom.WebUI.Controllers
 {
     [AllowAnonymous]
     public class ContactController : Controller
     {
+        private EmailService _service;
+        private SmtpSettings _smtpConfig;
+        private ILogger<ContactController> _logger;
+
+        public ContactController(EmailService service, ILoggerFactory logFac, IOptions<SmtpSettings> smtpConfig)
+        {
+            _service = service;
+            _smtpConfig = smtpConfig.Value;
+            _logger = logFac.CreateLogger<ContactController>();
+        }
 
         [HttpGet]
         [Route("contact")]
@@ -19,29 +32,23 @@ namespace SchoDotCom.WebUI.Controllers
         
         [HttpPost]
         [Route("contact")]
-        public ActionResult Index(ContactCreateViewModel contact)
+        public async Task<ActionResult> Index(ContactCreateViewModel contact)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    throw new System.NotImplementedException();
-                    //var msg = new MailMessage()
-                    //{
-                    //    Body = contact.Message,
-                    //    Subject = $"SchoDotCom::Contact: {contact.Name} ({contact.Email})",
-                    //};
-                    //msg.ReplyToList.Add(new MailAddress(contact.Email, contact.Name));
-                    //msg.To.Add(ConfigurationManager.AppSettings["schodotcom:DefaultUsername"] as string);
-                    //EmailService.SendAsync(msg).Wait();
+                    await _service.SendMailAsync((_smtpConfig.FromName, _smtpConfig.FromEmail), 
+                        $"SchoDotCom::Contact: {contact.Name} ({contact.Email})", contact.Message);
+                    contact.IsSent = true;
                 }
-                catch (System.Exception)
+                catch (System.Exception ex)
                 {
+                    _logger.LogCritical(new EventId(1), ex, "Sending email failed!");
                     ModelState.AddModelError("message", "Something went wrong on my side! Sending message failed!");
                 }
             }
 
-            contact.IsSent = ModelState.IsValid;
             return View(contact);
         }
     }

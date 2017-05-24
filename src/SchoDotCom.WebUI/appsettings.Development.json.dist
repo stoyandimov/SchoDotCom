@@ -7,6 +7,14 @@
             "Microsoft": "Information"
         }
     },
+    "Smtp": {
+        "FromName": "John Doe",
+        "FromEmail": "j.d@example.com",
+        "Username": "smtp-user",
+        "Password": "smtp-pass",
+        "Port": 587,
+        "Url": "smtp.example.com"
+    },
     "ApplicationInsights": {
         "InstrumentationKey": "11111111-2222-3333-4444-555555555555"
     }
