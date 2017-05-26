@@ -9,8 +9,13 @@
         }
         @if (User.Identity.IsAuthenticated)
         {
-            @:| <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            @:| <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
         }
+        else
+        {
+            @:| @Html.ActionLink("Login", "Login", "Account")
+        }
+
     </p>
     <p>&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
 </footer>

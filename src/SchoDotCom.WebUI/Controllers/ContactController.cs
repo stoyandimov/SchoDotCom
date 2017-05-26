@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SchoDotCom.WebUI.Models;
+using SchoDotCom.WebUI.Services;
 using SchoDotCom.WebUI.ViewModels.Contact;
 using System.Threading.Tasks;
 
@@ -38,7 +39,7 @@ namespace SchoDotCom.WebUI.Controllers
             {
                 try
                 {
-                    await _service.SendMailAsync((_smtpConfig.FromName, _smtpConfig.FromEmail), 
+                    await _service.SendEmailAsync((_smtpConfig.FromName, _smtpConfig.FromEmail), 
                         $"SchoDotCom::Contact: {contact.Name} ({contact.Email})", contact.Message);
                     contact.IsSent = true;
                 }

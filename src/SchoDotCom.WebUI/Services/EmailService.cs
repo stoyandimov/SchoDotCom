@@ -1,10 +1,11 @@
 ﻿using MailKit.Net.Smtp;
-using MimeKit;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MimeKit;
+using SchoDotCom.WebUI.Models;
+using System.Threading.Tasks;
 
-namespace SchoDotCom.WebUI.Models
+namespace SchoDotCom.WebUI.Services
 {
     public class EmailService
     {
@@ -18,17 +19,18 @@ namespace SchoDotCom.WebUI.Models
             _config = config.Value;
         }
 
-        public async Task SendMailAsync((string Name, string Email) to, string subject, string body)
+        public async Task SendEmailAsync(string email, string subject, string body)
+        {
+            await SendEmailAsync(("", email), subject, body, true);
+        }
+
+        public async Task SendEmailAsync((string Name, string Email) to, string subject, string body, bool isHtml = false)
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(_config.FromName, _config.FromEmail));
             message.To.Add(new MailboxAddress(to.Name, to.Email));
             message.Subject = subject;
-
-            message.Body = new TextPart("plain")
-            {
-                Text = body
-            };
+            message.Body = new TextPart(isHtml ? "html" : "plain") { Text = body };
 
             using (var client = new SmtpClient())
             {
