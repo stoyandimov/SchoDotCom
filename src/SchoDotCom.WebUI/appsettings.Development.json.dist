@@ -7,6 +7,9 @@
             "Microsoft": "Information"
         }
     },
+    "ConnectionStrings": {
+        "DefaultConnection": "Data Source=database.db"
+    },
     "Smtp": {
         "FromName": "John Doe",
         "FromEmail": "j.d@example.com",
