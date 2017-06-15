@@ -33,6 +33,7 @@ namespace SchoDotCom.WebUI.Controllers
         
         [HttpPost]
         [Route("contact")]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(ContactCreateViewModel contact)
         {
             if (ModelState.IsValid)
