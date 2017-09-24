@@ -8,6 +8,7 @@ using SchoDotCom.WebUI.Services;
 using SchoDotCom.WebUI.ViewModels.ManageViewModels;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 
 namespace SchoDotCom.WebUI.Controllers
 {
@@ -16,7 +17,6 @@ namespace SchoDotCom.WebUI.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly string _externalCookieScheme;
         private readonly EmailService _emailService;
         private readonly SmsService _smsService;
         private readonly ILogger _logger;
@@ -24,14 +24,12 @@ namespace SchoDotCom.WebUI.Controllers
         public ManageController(
           UserManager<User> userManager,
           SignInManager<User> signInManager,
-          IOptions<IdentityCookieOptions> identityCookieOptions,
           EmailService emailService,
           SmsService smsService,
           ILoggerFactory loggerFactory)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _externalCookieScheme = identityCookieOptions.Value.ExternalCookieAuthenticationScheme;
             _emailService = emailService;
             _smsService = smsService;
             _logger = loggerFactory.CreateLogger<ManageController>();
@@ -289,7 +287,8 @@ namespace SchoDotCom.WebUI.Controllers
                 return View("Error");
             }
             var userLogins = await _userManager.GetLoginsAsync(user);
-            var otherLogins = _signInManager.GetExternalAuthenticationSchemes().Where(auth => userLogins.All(ul => auth.AuthenticationScheme != ul.LoginProvider)).ToList();
+            var schemes = await _signInManager.GetExternalAuthenticationSchemesAsync();
+            var otherLogins = schemes.Where(auth => userLogins.All(ul => auth.Name != ul.LoginProvider)).ToList();
             ViewData["ShowRemoveButton"] = user.PasswordHash != null || userLogins.Count > 1;
             return View(new ManageLoginsViewModel
             {
@@ -305,7 +304,7 @@ namespace SchoDotCom.WebUI.Controllers
         public async Task<IActionResult> LinkLogin(string provider)
         {
             // Clear the existing external cookie to ensure a clean login process
-            await HttpContext.Authentication.SignOutAsync(_externalCookieScheme);
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             // Request a redirect to the external login provider to link a login for the current user
             var redirectUrl = Url.Action(nameof(LinkLoginCallback), "Manage");
@@ -334,7 +333,7 @@ namespace SchoDotCom.WebUI.Controllers
             {
                 message = ManageMessageId.AddLoginSuccess;
                 // Clear the existing external cookie to ensure a clean login process
-                await HttpContext.Authentication.SignOutAsync(_externalCookieScheme);
+                await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             }
             return RedirectToAction(nameof(ManageLogins), new { Message = message });
         }
