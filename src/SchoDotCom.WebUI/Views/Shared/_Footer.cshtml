@@ -1,8 +1,18 @@
-﻿<footer class="container">
+﻿@inject SchoDotCom.WebUI.Models.PageAccessControlManager acl
+<footer class="container">
     <p class="pull-right">
-        @Html.ActionLink("About", "About", "Home") |
-        @Html.ActionLink("Resume", "Resume", "Home") |
-        @Html.ActionLink("Contact", "Index", "Contact")
+        @if (acl.IsPageEnabled("about"))
+        {
+            @Html.ActionLink("About", "About", "Home") @:|
+        }
+        @if (acl.IsPageEnabled("resume"))
+        {
+            @Html.ActionLink("Resume", "Resume", "Home") @:|
+        }
+        @if (acl.IsPageEnabled("contact"))
+        {
+            @Html.ActionLink("Contact", "Index", "Contact")
+        }
         @if (User.IsInRole("admin"))
         {
             @:| @Html.ActionLink("Admin Area", "Index", new { controller = "AdminHome", area = "Admin" })
@@ -15,7 +25,6 @@
         {
             @:| @Html.ActionLink("Login", "Login", "Account")
         }
-
     </p>
     <p>&copy; Copyright @DateTime.Now.Year, @Html.ActionLink("Stoyan Dimov", "Index", "Home")</p>
 </footer>

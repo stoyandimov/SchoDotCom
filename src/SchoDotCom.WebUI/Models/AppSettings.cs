@@ -4,5 +4,6 @@
     {
         public bool RenderGoogleAnalyticsSnippet { get; set; }
         public bool RenderAppInsightsSnippet { get; set; }
+        public string[] DisabledPages { get; set; }
     }
 }

@@ -14,12 +14,14 @@ namespace SchoDotCom.WebUI.Controllers
     {
         private EmailService _service;
         private SmtpSettings _smtpConfig;
+        private PageAccessControlManager _acl;
         private ILogger<ContactController> _logger;
 
-        public ContactController(EmailService service, ILoggerFactory logFac, IOptions<SmtpSettings> smtpConfig)
+        public ContactController(EmailService service, ILoggerFactory logFac, IOptions<SmtpSettings> smtpConfig, PageAccessControlManager acl)
         {
             _service = service;
             _smtpConfig = smtpConfig.Value;
+            _acl = acl;
             _logger = logFac.CreateLogger<ContactController>();
         }
 
@@ -27,6 +29,9 @@ namespace SchoDotCom.WebUI.Controllers
         [Route("contact")]
         public ActionResult Index()
         {
+            if (_acl.IsPageDisabled("contact"))
+                return NotFound();
+
             var viewModel = new ContactCreateViewModel();
             return View(viewModel);
         }
@@ -36,6 +41,9 @@ namespace SchoDotCom.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(ContactCreateViewModel contact)
         {
+            if (_acl.IsPageDisabled("contact"))
+                return NotFound();
+
             if (ModelState.IsValid)
             {
                 try

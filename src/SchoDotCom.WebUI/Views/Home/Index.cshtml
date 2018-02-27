@@ -1,4 +1,5 @@
 ﻿@using Microsoft.Extensions.Options
+@inject SchoDotCom.WebUI.Models.PageAccessControlManager acl
 @inject IOptions<SchoDotCom.WebUI.Models.AppSettings> Settings
 @{
     Layout = null;
@@ -66,9 +67,18 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                            @if (acl.IsPageEnabled("about"))
+                            {
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                            }
+                            @if (acl.IsPageEnabled("resume"))
+                            {
+                                <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
+                            }
+                            @if (acl.IsPageEnabled("contact"))
+                            {
+                                <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                            }
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li>

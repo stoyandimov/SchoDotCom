@@ -1,4 +1,5 @@
-﻿<nav class="nav-container">
+﻿@inject SchoDotCom.WebUI.Models.PageAccessControlManager acl
+<nav class="nav-container">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -14,9 +15,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                    @if (acl.IsPageEnabled("about"))
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    }
+                    @if (acl.IsPageEnabled("resume"))
+                    {
+                        <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
+                    }
+                    @if (acl.IsPageEnabled("contact"))
+                    {
+                        <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
+                    }
                     @Html.Partial("_LoginPartial")
                 </ul>
                 <div class="pull-right social-media-container">
