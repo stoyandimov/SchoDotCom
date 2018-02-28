@@ -8,7 +8,7 @@
         }
     },
     "ConnectionStrings": {
-        "DefaultConnection": "Data Source=database.db"
+        "DefaultConnection": "Data Source=./scho-dot-com.db"
     },
     "Smtp": {
         "FromName": "John Doe",

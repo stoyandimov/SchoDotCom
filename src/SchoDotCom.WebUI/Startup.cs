@@ -52,34 +52,7 @@ namespace SchoDotCom.WebUI
 
             // Add custom settings that don't belong to other secions
             services.Configure<AppSettings>(Configuration.GetSection("SchoDotCom"));
-
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
-
-            // // Add identity options
-            // services.Configure<IdentityOptions>(options =>
-            // {
-            //     // Password settings
-            //     options.Password.RequireDigit = true;
-            //     options.Password.RequiredLength = 8;
-            //     options.Password.RequireNonAlphanumeric = false;
-            //     options.Password.RequireUppercase = true;
-            //     options.Password.RequireLowercase = false;
-
-            //     // Lockout settings
-            //     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-            //     options.Lockout.MaxFailedAccessAttempts = 10;
-
-            //     // Cookie settings
-            //     options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(150);
-            //     options.Cookies.ApplicationCookie.LoginPath = "/Account/LogIn";
-            //     options.Cookies.ApplicationCookie.LogoutPath = "/Account/LogOut";
-
-            //     // User settings
-            //     options.User.RequireUniqueEmail = true;
-
-            //     // Signin settings
-            //     options.SignIn.RequireConfirmedEmail = true;
-            // });
 
             services.AddTransient<EmailService>();
             services.AddTransient<SmsService>();
@@ -102,10 +75,11 @@ namespace SchoDotCom.WebUI
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            // Apply any pending ef db migrations
+            DatabaseMigrator.Migrate(app);
+
             app.UseStaticFiles();
-
             app.UseAuthentication();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

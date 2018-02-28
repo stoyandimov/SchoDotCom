@@ -24,4 +24,3 @@ COPY --from=build-env /app/wwwroot/lib /wwwroot/lib
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 ENTRYPOINT ["dotnet", "SchoDotCom.WebUI.dll"]
-

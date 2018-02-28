@@ -1,14 +1,3 @@
-# Config files
-src/SchoDotCom.WebUI/appsettings.*.json
-
-# Bower packages
-src/SchoDotCom.WebUI/wwwroot/lib
-!src/SchoDotCom.WebUI/wwwroot/lib/Readme.md
-
-# Minified assets
-src/SchoDotCom.WebUI/wwwroot/css/site.min.css
-src/SchoDotCom.WebUI/wwwroot/js/site.min.js
-
 #Publish Profiles
 *.pubxml
 
