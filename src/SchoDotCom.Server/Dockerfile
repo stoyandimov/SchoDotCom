@@ -1,9 +1,16 @@
 FROM httpd:alpine
 
-# Create dirs
-RUN mkdir -p /var/log/apache2
+# Create apache log dirs
+RUN mkdir -p /var/log/apache2/scho-dot-com-monitoring
+RUN mkdir    /var/log/apache2/scho-dot-com
+RUN touch 	 /var/log/apache2/scho-dot-com/access.log
+
+# Create ssl certs dirs
 RUN mkdir -p /etc/ssl/certs
 RUN mkdir    /etc/ssl/private
+
+# Create goaccess html report root dir
+RUN mkdir -p /var/www/monitoring
 
 # Copy apache2 config
 COPY ./httpd.conf    /usr/local/apache2/conf/httpd.conf

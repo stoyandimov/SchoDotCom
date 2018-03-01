@@ -3,6 +3,7 @@ services:
   webapp:
     build: ./src/SchoDotCom.WebUI
     image: scho-dot-com
+
   server:
     build: ./src/SchoDotCom.Server
     image: scho-dot-com-server
@@ -11,3 +12,20 @@ services:
       - "443:443"
     links:
       - webapp
+    volumes:
+      - scho-dot-com-access-log:/var/log/apache2/scho-dot-com
+      - scho-dot-com-access-report:/var/www/monitoring
+
+  goaccess:
+    image: allinurl/goaccess
+    volumes:
+      - scho-dot-com-access-log:/srv/logs
+      - scho-dot-com-access-report:/srv/report
+      - ./src/SchoDotCom.Monitoring/config:/srv/data
+      - ./src/SchoDotCom.Monitoring/certs:/srv/certs
+    ports:
+      - "7890:7890"
+
+volumes:
+  scho-dot-com-access-log:
+  scho-dot-com-access-report:
