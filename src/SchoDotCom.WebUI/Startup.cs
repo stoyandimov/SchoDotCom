@@ -72,6 +72,7 @@ namespace SchoDotCom.WebUI
             // Apply any pending ef db migrations
             DatabaseMigrator.Migrate(app);
 
+            app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseMvc(routes =>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SchoDotCom.WebUI.Models;
 using SchoDotCom.WebUI.ViewModels.Home;
+using System.Diagnostics;
 
 namespace SchoDotCom.WebUI.Controllers
 {
@@ -39,5 +40,8 @@ namespace SchoDotCom.WebUI.Controllers
             var viewModel = new ResumeViewModel();
             return View(viewModel);
         }
+
+        public IActionResult Error()
+            => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
