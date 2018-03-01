@@ -35,24 +35,5 @@ docker run -d -p 80:80 --name scho-dot-com scho-dot-com
 #browse on http://localhost (:80)
 ```
 
-### Run with apache server as reverse proxy
-
-#### Prerequisites
-Install [docker compose](https://docs.docker.com/compose/install/) (for your OS)
-
-```
-git clone https://github.com/stoyandimov/SchoDotCom scho-dot-com
-cd scho-dot-com
-
-# on windows
-docker-run.ps1 
-
-# on linux
-chmod +x docker-run.sh
-docker-run.sh
-
-#browse on http://localhost (:80)
-```
-
 ## Issues
 Please, submit bug or suggestions to the [issue tracker](https://github.com/stoyandimov/SchoDotCom/issues)
