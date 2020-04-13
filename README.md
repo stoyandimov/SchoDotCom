@@ -19,21 +19,5 @@ dotnet run
 # browse on http://localhost:5000
 ```
 
-## Run with Docker
-Install [docker](https://docs.docker.com/install/) (for your OS)
-
-### Run website container
-
-```
-git clone https://github.com/stoyandimov/SchoDotCom scho-dot-com
-cd scho-dot-com/src/SchoDotCom.WebUI
-
-# Build container and run it
-docker build -t scho-dot-com .
-docker run -d -p 80:80 --name scho-dot-com scho-dot-com 
-
-#browse on http://localhost (:80)
-```
-
 ## Issues
 Please, submit bug or suggestions to the [issue tracker](https://github.com/stoyandimov/SchoDotCom/issues)
